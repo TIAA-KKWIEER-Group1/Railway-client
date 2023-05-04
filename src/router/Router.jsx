@@ -1,7 +1,11 @@
-import { Route, Routes } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Route, Routes, useLocation } from 'react-router-dom';
+import useUserStatus from '../hooks/useUserStatus';
 import Admin from '../pages/Admin/Admin';
 import AdminLogin from '../pages/AdminLogin/AdminLogin';
+import Error from '../pages/Error/Error';
 import Home from '../pages/Home/Home';
+import Loading from '../pages/Loading/Loading';
 import NotFound from '../pages/NotFound/NotFound';
 import TrainDetail from '../pages/TrainDetail/TrainDetail';
 import TrainSearch from '../pages/TrainSearch/TrainSearch';
@@ -9,6 +13,17 @@ import UserLogin from '../pages/UserLogin/UserLogin';
 import UserRegister from '../pages/UserRegister/UserRegister';
 
 function Router() {
+  const { pathname } = useLocation();
+  const { isLoading, isError } = useUserStatus();
+
+  // Function to scroll to top when url changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  if (isLoading) return <Loading />;
+  if (isError) return <Error />;
+
   return (
     <Routes>
       {/* Home */}
