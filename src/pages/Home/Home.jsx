@@ -1,291 +1,145 @@
+import { BsArrowDownUp } from 'react-icons/bs';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick-theme.css';
+import 'slick-carousel/slick/slick.css';
+import Footer from '../../components/Footer/Footer';
 import styles from './Home.module.css';
 
 function Home() {
-  return (
-    <div>
-      <div className={styles.backContainer}>
-        <div className={styles.backgroundImage}></div>
-        <div className={styles.homeCard}>
-          <h2 className={styles.cardHeading}>Railway Reservation </h2>
-          <label className={styles.lab}>Date</label>
-          <input
-            type="text"
-            name="destination"
-            id="destination"
-            className={styles.destination}
-            placeholder="DD/MM/YYYY "
-          />
+  let settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
 
-          <div className={styles.formRow}>
-            <div className={styles.formCol}>
-              <label htmlFor="input-1" className={styles.lab}>
-                Source
-              </label>
-              <select
-                className="select form-select form-select-md mb-3 ml-8 w-40 "
-                aria-label=".form-select-lg example"
-              >
-                <option selected className={styles.options}>
-                  hello
-                </option>
-                <option value="1" className={styles.options}>
-                  One
-                </option>
-                <option value="2" className={styles.options}>
-                  Two
-                </option>
-                <option value="3" className={styles.options}>
-                  Three
-                </option>
-              </select>
+  return (
+    <main className={styles.Home}>
+      <section className={styles.banner}>
+        <div className={styles.backgroundImage}></div>
+
+        <div className={styles.trainSearchFormContainer}>
+          <h2>Railway Reservation</h2>
+          <div className={styles.trainSearchForm}>
+            <div className={styles.inputContainer}>
+              <label>Date</label>
+              <input type="date" name="date" />
             </div>
-            <div className={styles.formCol}>
-              <label htmlFor="input-2" className={styles.lab}>
-                Destination
-              </label>
-              <select
-                className="form-select form-select-mg mb-3 w-35"
-                aria-label=".form-select-lg example"
-              >
-                <option selected className={styles.options}>
-                  hello
-                </option>
-                <option value="1" className={styles.options}>
-                  One
-                </option>
-                <option value="2" className={styles.options}>
-                  Two
-                </option>
-                <option value="3" className={styles.options}>
-                  Three
-                </option>
-              </select>
+            <div className={styles.inputContainer}>
+              <label>Source</label>
+              <input type="text" name="source" />
             </div>
-            <button className={styles.blueButton}>Check Availability</button>
+            <div className={styles.arrowIcon}>
+              <BsArrowDownUp />
+            </div>
+            <div className={styles.inputContainer}>
+              <label>Destination</label>
+              <input type="text" name="destination" />
+            </div>
+            <button type="button" className={styles.buttonAvailability}>
+              Check Availability
+            </button>
           </div>
         </div>
-        <div className={styles.homeInfo}>
-          <h1 className={styles.headingHome}>
-            MAKE YOUR <br /> RESERVATION
-          </h1>
-          <p className={styles.para}>
+        <div className={styles.bannerDetail}>
+          <h1 className={styles.heading}>MAKE YOUR RESERVATION</h1>
+          <p className={styles.paragraph}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
             aliquet, felis in vulputate malesuada, orci tellus porta tellus,
             vitae euismod risus purus sit amet enim.
           </p>
         </div>
-      </div>
-      <section>
-        <div>
-          <div className={styles.services}>
-            <div className={styles.row}>
-              <div className="col-xl-3 col-sm-6 col-12">
-                <div className={styles.card}>
-                  <div className={styles.cardContent}>
-                    <div className={styles.cardBody}>
-                      <div className="media d-flex">
-                        <div className="align-self-center">
-                          <i className="icon-pencil primary font-large-2 float-left"></i>
-                        </div>
-                        <div className="media-body text-right">
-                          <h3 className={styles.cardTitle}>
-                            Safety GuideLines
-                          </h3>
-                          <span className={styles.cardText}>
-                            Stay Safe, Travel Smart: Follow these safety
-                            guidelines to ensure a safe and enjoyable train
-                            journey
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-xl-3 col-sm-6 col-12">
-                <div className={styles.card}>
-                  <div className={styles.cardContent}>
-                    <div className={styles.cardBody}>
-                      <div className="media d-flex">
-                        <div className="align-self-center">
-                          <i className="icon-speech warning font-large-2 float-left"></i>
-                        </div>
-                        <div className="media-body text-right">
-                          <h3 className={styles.cardTitle}>
-                            Pantry Cart Services
-                          </h3>
-                          <span className={styles.cardText}>
-                            Enjoy delicious meals on the go with our pantry
-                            services the perfect accompaniment for your train
-                            travel adventure
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-xl-3 col-sm-6 col-12">
-                <div className={`${styles.card} ${styles.serviceCard}`}>
-                  <div className={styles.cardContent}>
-                    <div className={styles.cardBody}>
-                      <div className="media d-flex">
-                        <div className="align-self-center">
-                          <i className="icon-graph success font-large-2 float-left"></i>
-                        </div>
-                        <div className="media-body text-right">
-                          <h3 className={styles.cardTitle}>
-                            Emergency Contact Information
-                          </h3>
-                          <span className={styles.cardText}>
-                            Stay Safe and Secure with Our Emergency Services -
-                            Always Ready to Help You
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-xl-3 col-sm-6 col-12">
-                <div className={styles.card}>
-                  <div className={styles.cardContent}>
-                    <div className={styles.body}>
-                      <div className="media d-flex">
-                        <div className="align-self-center">
-                          <i className="icon-graph success font-large-2 float-left"></i>
-                        </div>
-                        <div className="media-body text-right">
-                          <h3 className={styles.cardTitle}>
-                            Emergency Contact Information
-                          </h3>
-                          <span className={styles.cardText}>
-                            Stay Safe and Secure with Our Emergency Services -
-                            Always Ready to Help You
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+      </section>
+
+      <section className={styles.allInformation}>
+        <div className={styles.informationContainer}>
+          <div className={styles.information}>
+            <h2>Safety Guidelines</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque
+              possimus vel magnam qui beatae quidem excepturi velit eligendi non
+            </p>
+          </div>
+          <div className={styles.information}>
+            <h2>Safety Guidelines</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque
+              possimus vel magnam qui beatae quidem excepturi velit eligendi non
+            </p>
+          </div>
+          <div className={styles.information}>
+            <h2>Safety Guidelines</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque
+              possimus vel magnam qui beatae quidem excepturi velit eligendi non
+            </p>
+          </div>
+          <div className={styles.information}>
+            <h2>Safety Guidelines</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque
+              possimus vel magnam qui beatae quidem excepturi velit eligendi non
+            </p>
           </div>
         </div>
       </section>
-      <section>
-        <div className="FaQs">
-          <div className="row">
-            <div className="col-md-7">
-              <div>
-                <div>
-                  <div className="card-carausal">
-                    <div className="card-content">
-                      <div className="card-body">
-                        <div className="media d-flex">
-                          <div className="align-self-center">
-                            <i className="icon-speech warning font-large-2 float-center"></i>
-                          </div>
-                          <div className="media-body text-right">
-                            <h3 className="carausal-card-title">
-                              How do I book a train ticket on this website?
-                            </h3>
-                            <p className="carausal-card-text">
-                              To book a train ticket on this website, simply go
-                              to the booking section, select your desired train,
-                              fill in the required details, and make the
-                              payment. You will receive a confirmation message
-                              and email once the booking is complete.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <div className="card-carausal">
-                    <div className="card-content">
-                      <div className="card-body">
-                        <div className="media d-flex">
-                          <div className="align-self-center">
-                            <i className="icon-speech warning font-large-2 float-center"></i>
-                          </div>
-                          <div className="media-body text-right">
-                            <h3 className="carausal-card-title">
-                              What information do I need to provide to book a
-                              train ticket?
-                            </h3>
-                            <p className="carausal-card-text">
-                              To book a train ticket, you will need to provide
-                              your departure and arrival locations, travel
-                              dates, passenger details, and any other
-                              preferences, such as seat selection and food
-                              options.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <div className="card-carausal">
-                    <div className="card-content">
-                      <div className="card-body">
-                        <div className="media d-flex">
-                          <div className="align-self-center">
-                            <i className="icon-speech warning font-large-2 float-center"></i>
-                          </div>
-                          <div className="media-body text-right">
-                            <h3 className="carausal-card-title">
-                              How can I pay for my train ticket booking?
-                            </h3>
-                            <p className="carausal-card-text">
-                              This website accepts multiple modes of payment,
-                              such as credit/debit cards, net banking, and
-                              mobile wallets. Select your preferred mode of
-                              payment during the booking process and follow the
-                              instructions.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+
+      <section className={styles.faqAndNews}>
+        <div className={styles.faq}>
+          <Slider {...settings}>
+            <div className={styles.slide}>
+              <h3> How do I book a train ticket on this website?</h3>
+              <p>
+                To book a train ticket on this website, simply go to the booking
+                section, select your desired train, fill in the required
+                details, and make the payment. You will receive a confirmation
+                message and email once the booking is complete.
+              </p>
             </div>
-            <div className="col-md-5">
-              <div className="side-card">
-                <div className="card-content">
-                  <div className="card-body">
-                    <div className="media d-flex">
-                      <div className="align-self-center">
-                        <i className="icon-speech warning font-large-2 float-center"></i>
-                      </div>
-                      <div className="media-body text-right">
-                        <h3 className="side-card-title">News</h3>
-                        <p className="side-card-text">
-                          <ul>
-                            <li>Hello</li>
-                            <li>Hello</li>
-                            <li>Hello</li>
-                            <li>Hello</li>
-                            <li>Hello</li>
-                          </ul>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div className={styles.slide}>
+              <h3>2</h3>
+              <p></p>
             </div>
-          </div>
+            <div className={styles.slide}>
+              <h3>3</h3>
+              <p></p>
+            </div>
+            <div className={styles.slide}>
+              <h3>4</h3>
+              <p></p>
+            </div>
+            <div className={styles.slide}>
+              <h3>5</h3>
+              <p></p>
+            </div>
+            <div className={styles.slide}>
+              <h3>6</h3>
+              <p></p>
+            </div>
+          </Slider>
+        </div>
+        <div className={styles.news}>
+          <h2>News</h2>
+          <ul>
+            <li>
+              <a href="/">Hello</a>
+            </li>
+            <li>
+              <a href="/">Hello</a>
+            </li>
+            <li>
+              <a href="/">Hello</a>
+            </li>
+            <li>
+              <a href="/">Hello</a>
+            </li>
+          </ul>
         </div>
       </section>
-      <section></section>
-    </div>
+
+      <Footer />
+    </main>
   );
 }
 export default Home;

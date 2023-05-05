@@ -1,0 +1,47 @@
+.Footer {
+  background-color: black;
+  color: white;
+}
+
+.footerContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+}
+
+.social {
+  margin-top: 1rem;
+}
+
+.socialIcons {
+  display: flex;
+  gap: 0.25rem;
+  font-size: 2rem;
+}
+
+.socialIcons svg {
+  cursor: pointer;
+}
+
+.facebook {
+  color: #1877f2;
+}
+
+.twitter {
+  color: #00acee;
+}
+
+.instagram {
+  color: #833ab4;
+}
+
+.copyRight {
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+@media (max-width: 600px) {
+  .footerContainer {
+    flex-direction: column;
+  }
+}
