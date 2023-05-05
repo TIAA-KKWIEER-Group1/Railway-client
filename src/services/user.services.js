@@ -14,8 +14,8 @@ const loginUser = async (mobile, password) => {
   );
 };
 
-const registerUser = async (user) => {
-  console.log(user);
+const registerUser = async (user, otp) => {
+  console.log(user, otp);
 
   return fakeRequest({}, { isLoggedIn: false }).then(
     (response) => response.data,

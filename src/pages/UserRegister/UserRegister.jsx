@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useFormik } from 'formik';
+import { useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
@@ -7,11 +8,13 @@ import { registerUser } from '../../services/user.services';
 import styles from './UserRegister.module.css';
 
 function UserRegister() {
+  const [otp, setOtp] = useState('');
+
   const queryClient = useQueryClient();
   const navigate = useNavigate();
 
   const { mutate, isLoading } = useMutation({
-    mutationFn: (user) => registerUser(user),
+    mutationFn: (user) => registerUser(user, otp),
     onError: (error) => {
       toast.error(error.response.data.message);
     },
@@ -62,6 +65,11 @@ function UserRegister() {
     }),
     onSubmit: (values) => mutate(values),
   });
+
+  const getOtp = () => {
+    // TODO: GET OTP
+    console.log('Get the OTP');
+  };
 
   return (
     <div className={styles.UserRegister}>
@@ -269,6 +277,18 @@ function UserRegister() {
                 <option value="other">Other</option>
               </select>
             </div>
+          </div>
+
+          <div className={`${styles.inputField} ${styles.otpContainer}`}>
+            <input
+              type="text"
+              placeholder="OTP"
+              value={otp}
+              onChange={(e) => setOtp(e.target.value)}
+            />
+            <button type="button" onClick={getOtp}>
+              Get OTP
+            </button>
           </div>
 
           <button type="submit" className={styles.button} disabled={isLoading}>
