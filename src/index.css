@@ -2,17 +2,23 @@
 
 :root {
   /* CSS Variables */
-  --txt-light: 248, 249, 254;
-  --txt-dark: 12, 20, 37;
+  --accent-color: 91, 47, 240;
+  --accent-color-dark: 62, 45, 178;
+
+  --white-color: 255, 255, 255;
+  --light-color: 248, 249, 254;
+  --dark-color: 12, 20, 37;
+
+  --text-color-dark: 12, 20, 37;
+  --text-color-light: 66, 80, 108;
 
   --bg-white: 255, 255, 255;
   --bg-light: 248, 249, 254;
-  --bg-dark: 12, 20, 37;
 
   --box-shadow: 0 12px 24px 2px rgb(129 146 179 / 8%);
-  --purple: 91, 47, 240;
+  --navbar-height: 50px;
 
-  color: rgb(var(--txt-dark));
+  color: rgb(var(--dark-color));
 }
 
 *,
@@ -94,6 +100,25 @@ code {
     monospace;
 }
 
+.title {
+  position: relative;
+  font-size: 27px;
+  font-weight: 600;
+
+  margin-bottom: 1rem;
+}
+
+.title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 60px;
+  background-color: rgb(var(--accent-color));
+  border-radius: 25px;
+}
+
 /* Remove all animations, transitions and smooth scrolling */
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {
@@ -115,4 +140,10 @@ code {
   padding-inline: 2em;
   margin-inline: auto;
   max-width: 80rem;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  inset: 0;
 }

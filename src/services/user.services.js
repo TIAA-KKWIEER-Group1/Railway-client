@@ -6,4 +6,12 @@ const getUserStatus = async () => {
   );
 };
 
-export { getUserStatus };
+const loginUser = async (mobile, password) => {
+  console.log(mobile, password);
+
+  return fakeRequest({}, { isLoggedIn: true }).then(
+    (response) => response.data,
+  );
+};
+
+export { getUserStatus, loginUser };
