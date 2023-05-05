@@ -14,4 +14,12 @@ const loginUser = async (mobile, password) => {
   );
 };
 
-export { getUserStatus, loginUser };
+const registerUser = async (user) => {
+  console.log(user);
+
+  return fakeRequest({}, { isLoggedIn: false }).then(
+    (response) => response.data,
+  );
+};
+
+export { getUserStatus, loginUser, registerUser };

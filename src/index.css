@@ -147,3 +147,22 @@ code {
   position: fixed;
   inset: 0;
 }
+
+/* input required * css */
+.required {
+  color: red;
+  margin-left: 2px;
+}
+
+/* For readability we are using visually hidden */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
