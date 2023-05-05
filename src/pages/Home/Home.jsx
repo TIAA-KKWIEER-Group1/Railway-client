@@ -1,27 +1,6 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import React, { useState } from 'react';
-import { Carousel } from 'react-bootstrap';
 import styles from './Home.module.css';
 
 function Home() {
-  const [index, setIndex] = useState(0);
-
-  const handleSelect = (selectedIndex, e) => {
-    setIndex(selectedIndex);
-  };
-
-  const handlePrevClick = () => {
-    if (index > 0) {
-      setIndex(index - 1);
-    }
-  };
-
-  const handleNextClick = () => {
-    if (index < 2) {
-      // 2 is the number of items in the carousel
-      setIndex(index + 1);
-    }
-  };
   return (
     <div>
       <div className={styles.backContainer}>
@@ -39,7 +18,7 @@ function Home() {
 
           <div className={styles.formRow}>
             <div className={styles.formCol}>
-              <label for="input-1" className={styles.lab}>
+              <label htmlFor="input-1" className={styles.lab}>
                 Source
               </label>
               <select
@@ -61,7 +40,7 @@ function Home() {
               </select>
             </div>
             <div className={styles.formCol}>
-              <label for="input-2" className={styles.lab}>
+              <label htmlFor="input-2" className={styles.lab}>
                 Destination
               </label>
               <select
@@ -195,23 +174,23 @@ function Home() {
         </div>
       </section>
       <section>
-        <div class="FaQs">
-          <div class="row" activeIndex={index} onSelect={handleSelect}>
-            <div class="col-md-7">
-              <Carousel variant="dark">
-                <Carousel.Item>
-                  <div class="card-carausal">
-                    <div class="card-content">
-                      <div class="card-body">
-                        <div class="media d-flex">
-                          <div class="align-self-center">
-                            <i class="icon-speech warning font-large-2 float-center"></i>
+        <div className="FaQs">
+          <div className="row">
+            <div className="col-md-7">
+              <div>
+                <div>
+                  <div className="card-carausal">
+                    <div className="card-content">
+                      <div className="card-body">
+                        <div className="media d-flex">
+                          <div className="align-self-center">
+                            <i className="icon-speech warning font-large-2 float-center"></i>
                           </div>
-                          <div class="media-body text-right">
-                            <h3 class="carausal-card-title">
+                          <div className="media-body text-right">
+                            <h3 className="carausal-card-title">
                               How do I book a train ticket on this website?
                             </h3>
-                            <p class="carausal-card-text">
+                            <p className="carausal-card-text">
                               To book a train ticket on this website, simply go
                               to the booking section, select your desired train,
                               fill in the required details, and make the
@@ -223,21 +202,21 @@ function Home() {
                       </div>
                     </div>
                   </div>
-                </Carousel.Item>
-                <Carousel.Item>
-                  <div class="card-carausal">
-                    <div class="card-content">
-                      <div class="card-body">
-                        <div class="media d-flex">
-                          <div class="align-self-center">
-                            <i class="icon-speech warning font-large-2 float-center"></i>
+                </div>
+                <div>
+                  <div className="card-carausal">
+                    <div className="card-content">
+                      <div className="card-body">
+                        <div className="media d-flex">
+                          <div className="align-self-center">
+                            <i className="icon-speech warning font-large-2 float-center"></i>
                           </div>
-                          <div class="media-body text-right">
-                            <h3 class="carausal-card-title">
+                          <div className="media-body text-right">
+                            <h3 className="carausal-card-title">
                               What information do I need to provide to book a
                               train ticket?
                             </h3>
-                            <p class="carausal-card-text">
+                            <p className="carausal-card-text">
                               To book a train ticket, you will need to provide
                               your departure and arrival locations, travel
                               dates, passenger details, and any other
@@ -249,20 +228,20 @@ function Home() {
                       </div>
                     </div>
                   </div>
-                </Carousel.Item>
-                <Carousel.Item>
-                  <div class="card-carausal">
-                    <div class="card-content">
-                      <div class="card-body">
-                        <div class="media d-flex">
-                          <div class="align-self-center">
-                            <i class="icon-speech warning font-large-2 float-center"></i>
+                </div>
+                <div>
+                  <div className="card-carausal">
+                    <div className="card-content">
+                      <div className="card-body">
+                        <div className="media d-flex">
+                          <div className="align-self-center">
+                            <i className="icon-speech warning font-large-2 float-center"></i>
                           </div>
-                          <div class="media-body text-right">
-                            <h3 class="carausal-card-title">
+                          <div className="media-body text-right">
+                            <h3 className="carausal-card-title">
                               How can I pay for my train ticket booking?
                             </h3>
-                            <p class="carausal-card-text">
+                            <p className="carausal-card-text">
                               This website accepts multiple modes of payment,
                               such as credit/debit cards, net banking, and
                               mobile wallets. Select your preferred mode of
@@ -274,20 +253,20 @@ function Home() {
                       </div>
                     </div>
                   </div>
-                </Carousel.Item>
-              </Carousel>
+                </div>
+              </div>
             </div>
-            <div class="col-md-5">
-              <div class="side-card">
-                <div class="card-content">
-                  <div class="card-body">
-                    <div class="media d-flex">
-                      <div class="align-self-center">
-                        <i class="icon-speech warning font-large-2 float-center"></i>
+            <div className="col-md-5">
+              <div className="side-card">
+                <div className="card-content">
+                  <div className="card-body">
+                    <div className="media d-flex">
+                      <div className="align-self-center">
+                        <i className="icon-speech warning font-large-2 float-center"></i>
                       </div>
-                      <div class="media-body text-right">
-                        <h3 class="side-card-title">News</h3>
-                        <p class="side-card-text">
+                      <div className="media-body text-right">
+                        <h3 className="side-card-title">News</h3>
+                        <p className="side-card-text">
                           <ul>
                             <li>Hello</li>
                             <li>Hello</li>

@@ -4,8 +4,13 @@ import styles from './Navbar.module.css';
 function Navbar() {
   return (
     <header className={styles.Navbar}>
-      <h1>Railway</h1>
+      <h1>
+        <Link to="/">Railway</Link>
+      </h1>
       <ul className={styles.links}>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
         <li>
           <Link to="/user/login">User Login</Link>
         </li>

@@ -14,6 +14,11 @@
   background-color: rgb(var(--bg-white));
 }
 
+.Navbar a {
+  color: rgb(var(--txt-dark));
+  text-decoration: none;
+}
+
 .links {
   display: flex;
   gap: 1rem;
@@ -21,11 +26,6 @@
 
 .links > li {
   list-style: none;
-}
-
-.links > li > a {
-  color: rgb(var(--txt-dark));
-  text-decoration: none;
 }
 
 .links > li > a:hover {
