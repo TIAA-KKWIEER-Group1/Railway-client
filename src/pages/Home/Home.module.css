@@ -1,0 +1,306 @@
+.backContainer {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.backgroundImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../../assets/images/home/train4.jpg');
+  background-size: cover;
+  filter: blur(2px);
+  z-index: -1;
+}
+
+/* .card {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 400px;
+        padding: 20px;
+        background-color: white;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        z-index: 1;
+      } */
+
+.container {
+  position: relative;
+
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.homeContent {
+  display: flex;
+  width: 100%;
+  height: 100%;
+
+  justify-content: space-between;
+  padding: 50px;
+}
+
+.homeCard {
+  padding: 28px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  position: absolute;
+  background-color: #fff;
+  border-radius: 10px;
+  margin-top: 160px;
+  margin-left: 100px;
+  width: 500px;
+  height: 400px;
+}
+
+.homeInfo {
+  width: 50%;
+  padding: 20px;
+  z-index: 1;
+  position: absolute;
+  border-radius: 10px;
+  margin-top: 200px;
+  margin-left: 700px;
+}
+label {
+  display: flex;
+  align-items: left;
+  margin-left: 40px;
+  padding-bottom: 10px;
+  font-weight: bold;
+}
+.destination {
+  width: 450px;
+  border: rgb(252, 227, 227);
+  border-radius: 2px;
+  height: 40px;
+  box-shadow: whitesmoke;
+  font-size: medium;
+  background-color: rgb(252, 241, 241);
+  padding-left: 8px;
+}
+.destination ::placeholder {
+  padding-left: 20px;
+}
+
+.formRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.formCol {
+  flex-basis: calc(50% - 10px);
+  margin-bottom: 10px;
+}
+
+.lab {
+  margin-top: 30px;
+  display: flex;
+  align-items: left;
+  margin-left: 12px;
+  padding-bottom: 10px;
+  font-weight: bold;
+}
+
+.checkIn {
+  width: 150px;
+  border: blanchedalmond;
+  border-radius: 2px;
+  height: 40px;
+  box-shadow: whitesmoke;
+  font-size: medium;
+  background-color: rgb(215, 215, 215);
+  padding-left: 20px;
+  margin-left: 20px;
+}
+.checkOut {
+  width: 150px;
+  border: blanchedalmond;
+  border-radius: 2px;
+  height: 40px;
+  box-shadow: whitesmoke;
+  font-size: medium;
+  background-color: rgb(215, 215, 215);
+  padding-left: 20px;
+  margin-right: 20px;
+}
+.inputs[type='text'] {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.blueButton {
+  display: inline-block;
+  background-color: rgb(63, 62, 62);
+  color: #fff;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  margin-left: 115px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  width: 200px;
+}
+
+.headingHome {
+  color: rgb(63, 62, 62);
+  font-size: xxx-large;
+  font-weight: bolder;
+  text-align: left;
+}
+.para {
+  color: white;
+  font-weight: bolder;
+
+  text-align: left;
+}
+
+.cardHeading {
+  color: rgb(63, 62, 62);
+  font-size: xx-large;
+  font-weight: bolder;
+}
+
+.options {
+  background-color: rgb(252, 241, 241);
+}
+
+.services {
+  margin-top: 40px;
+  margin-left: 60px;
+  margin-bottom: 40px;
+}
+
+.card {
+  border-radius: 8px;
+  box-shadow: inset;
+  background-color: rgb(63, 62, 62);
+  box-shadow: 3px 3px 3px rgb(132, 132, 132);
+  height: 150px;
+  width: 300px;
+}
+.cardTitle {
+  color: rgb(63, 62, 62);
+  font-size: larger;
+  font-weight: bolder;
+}
+.cardText {
+  color: rgb(117, 118, 120);
+  font-weight: semibold;
+  text-align: left;
+}
+.serviceCard {
+  border-radius: 8px;
+  box-shadow: inset;
+  background-color: rgb(63, 62, 62);
+  box-shadow: 3px 3px 3px rgb(132, 132, 132);
+  height: 150px;
+  width: 200px;
+}
+.navItem {
+  color: rgb(63, 62, 62);
+  font-weight: 700;
+  font-size: larger;
+  margin-right: 60px;
+  border: rgb(63, 62, 62);
+  border-radius: 8px;
+  border-bottom: 2px solid rgb(63, 62, 62);
+}
+.nav-item:active {
+  border-bottom: black;
+  border: 2px solid black;
+}
+
+.sign {
+  background-color: rgb(63, 62, 62);
+  border-radius: 12px;
+  margin-right: 20px;
+}
+.nav-item-sign {
+  color: white;
+  font-weight: 600;
+  font-size: larger;
+}
+.nav-item-log {
+  color: rgb(63, 62, 62);
+  font-weight: 700;
+  font-size: larger;
+  border-bottom: 2px solid black;
+}
+
+.nav-links {
+  margin-left: 340px;
+}
+
+.services {
+  margin-top: 60px;
+}
+
+.FaQs {
+  background-color: rgb(63, 62, 62);
+}
+.caurosal-item {
+  justify-self: center;
+}
+.card-carausal {
+  float: center;
+  align-self: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-left: 100px;
+  margin-right: 100px;
+  height: 300px;
+  text-align: center;
+  background-color: rgb(63, 62, 62);
+}
+.carausal-card-title {
+  color: white;
+  margin-top: 40px;
+}
+.carausal-card-text {
+  margin-top: 30px;
+  padding: 40px;
+  text-align: center;
+  color: white;
+}
+
+.sideCard {
+  float: center;
+  align-self: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-left: 100px;
+  margin-right: 100px;
+  height: 300px;
+  width: 400px;
+  text-align: center;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 8px 8px 8px rgb(91, 91, 91);
+}
+
+.side-card-title {
+  color: rgb(63, 62, 62);
+  text-align: left;
+  margin: 20px;
+}
+.side-card-text {
+  color: rgb(93, 108, 220);
+  text-align: left;
+  margin: 20px;
+  font-size: large;
+}
