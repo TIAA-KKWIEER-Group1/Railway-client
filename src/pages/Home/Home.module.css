@@ -104,6 +104,10 @@
 }
 
 @media (max-width: 760px) {
+  .banner {
+    gap: 0;
+  }
+
   .bannerDetail {
     display: none;
   }
@@ -116,7 +120,7 @@
 /* Information container */
 .allInformation {
   scroll-margin-top: 3rem;
-  padding-block: 1rem;
+  padding-block: 4rem;
   padding-inline: 3rem;
 
   background-color: rgb(var(--bg-light));
@@ -200,4 +204,10 @@
 
   border-radius: 5px;
   height: 100%;
+}
+
+@media (max-width: 720px) {
+  .faqAndNews {
+    grid-template-columns: 100%;
+  }
 }

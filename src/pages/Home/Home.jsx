@@ -17,8 +17,6 @@ function Home() {
   return (
     <main className={styles.Home}>
       <section className={styles.banner}>
-        <div className={styles.backgroundImage}></div>
-
         <div className={styles.trainSearchFormContainer}>
           <h2>Railway Reservation</h2>
           <div className={styles.trainSearchForm}>
