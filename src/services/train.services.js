@@ -1,5 +1,4 @@
 import axios from 'axios';
-import fakeRequest from './fakeRequest';
 import { BASE_API_URL } from './serverConfig';
 
 const getTrainSearchData = (filter) => {
@@ -10,10 +9,8 @@ const getTrainSearchData = (filter) => {
   url.searchParams.set('destination', filter.destination);
   url.searchParams.set(
     'date',
-    `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`,
+    `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`,
   );
-
-  console.log(url.href);
 
   return axios.get(url.href).then((response) => response.data.data);
 };
@@ -29,9 +26,10 @@ const getTrainDetail = (id) => {
 };
 
 const makeTrainReservation = (data) => {
-  return fakeRequest(data, { message: 'done' }).then(
-    (response) => response.data,
-  );
+  const url = BASE_API_URL + `/ticket/book`;
+  return axios
+    .post(url, data, { withCredentials: true })
+    .then((response) => response.data);
 };
 
 export {

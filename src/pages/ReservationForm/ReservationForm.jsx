@@ -9,7 +9,6 @@ import Loading from '../Loading/Loading';
 import styles from './ReservationForm.module.css';
 
 function ReservationForm() {
-  // TODO: Update the detail of the train
   const params = useParams();
 
   // Get train details when state is loaded
@@ -38,7 +37,7 @@ function ReservationForm() {
       middleName: '',
       age: 0,
       gender: '',
-      class: '',
+      coach: '',
     },
   ]);
 
@@ -49,7 +48,7 @@ function ReservationForm() {
       middleName: '',
       age: '',
       gender: '',
-      class: '',
+      coach: '',
     };
 
     setPassengers([...passengers, passenger]);
@@ -62,16 +61,13 @@ function ReservationForm() {
   };
 
   const handleReservation = async () => {
-    console.log('Reservation');
-    console.log(trainDetail);
-    console.log(passengers);
-
     // submit the reservation form
     try {
       const data = {
         trainId: trainDetail._id,
-        passengers,
+        passengerDetails: passengers,
       };
+
       const responseData = await makeTrainReservation(data);
       toast.success(responseData?.message || 'Reservation Successful');
     } catch (error) {
@@ -179,10 +175,10 @@ function ReservationForm() {
                   <span className={styles.details}>Select Class</span>
                   <select
                     name="class"
-                    value={passenger.class}
+                    value={passenger.coach}
                     onChange={(e) => {
                       const newPassengers = structuredClone(passengers);
-                      newPassengers[index].class = e.target.value;
+                      newPassengers[index].coach = e.target.value;
                       setPassengers(newPassengers);
                     }}
                   >

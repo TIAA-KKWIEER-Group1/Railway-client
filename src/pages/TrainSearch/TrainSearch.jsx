@@ -32,26 +32,9 @@ function TrainSearch() {
     queryFn: () => getAllStations(),
   });
 
-  console.log(trainDataList);
-
   return (
     <div className={styles.TrainSearch}>
       <div className={styles.searchContainer}>
-        <select
-          type="text"
-          name="destination"
-          value={filter.destination}
-          onChange={(e) => {
-            setSearchParams({ ...filter, destination: e.target.value });
-          }}
-        >
-          <option value="">Destination</option>
-          {allStations?.map((station) => (
-            <option value={station} key={station}>
-              {station}
-            </option>
-          ))}
-        </select>
         <select
           type="text"
           name="source"
@@ -61,6 +44,21 @@ function TrainSearch() {
           }}
         >
           <option value="">Source</option>
+          {allStations?.map((station) => (
+            <option value={station} key={station}>
+              {station}
+            </option>
+          ))}
+        </select>
+        <select
+          type="text"
+          name="destination"
+          value={filter.destination}
+          onChange={(e) => {
+            setSearchParams({ ...filter, destination: e.target.value });
+          }}
+        >
+          <option value="">Destination</option>
           {allStations?.map((station) => (
             <option value={station} key={station}>
               {station}

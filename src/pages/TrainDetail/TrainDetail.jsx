@@ -1,6 +1,37 @@
+import { useEffect, useState } from 'react';
+import { toast } from 'react-hot-toast';
+import { Link, useParams } from 'react-router-dom';
+import { getTrainDetail } from '../../services/train.services';
+import canBookTicket from '../../utils/canBookTicket';
+import Error from '../Error/Error';
+import Loading from '../Loading/Loading';
 import styles from './TrainDetail.module.css';
 
 function TrainDetail() {
+  const params = useParams();
+
+  // Get train details when state is loaded
+  const [trainDetail, setTrainDetail] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getTrainDetail(params.id);
+        setTrainDetail(data);
+      } catch (error) {
+        console.log(error);
+        toast.error('Error Loading Train Detail');
+      }
+      setIsLoading(false);
+    };
+
+    fetchData();
+  }, [params]);
+
+  if (isLoading) return <Loading />;
+  if (!trainDetail) return <Error />;
+
   return (
     <div className={styles.TrainDetail}>
       <div className={styles.container}>
@@ -9,89 +40,47 @@ function TrainDetail() {
           <table className={styles.styledTable}>
             <thead>
               <tr>
-                <th>Station Name</th>
-                <th>Station Code</th>
-                <th>Arrival</th>
+                <th>Station</th>
+                <th>Arrival Date</th>
+                <th>Arrival Time</th>
+                <th>Departure Date</th>
+                <th>Departure Time</th>
                 <th>Halt Time</th>
-                <th>Departure</th>
-                <th>Day</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>LOKMANYATILAK T</td>
-                <td>LTT</td>
-                <td>20:20</td>
-                <td>30</td>
-                <td>20:50</td>
-                <td>1</td>
-              </tr>
-              <tr>
-                <td>RATNAGIRI</td>
-                <td>RN</td>
-                <td>01:20</td>
-                <td>10</td>
-                <td>01:30</td>
-                <td>2</td>
-              </tr>
-              <tr>
-                <td>MADGAON</td>
-                <td>MAO</td>
-                <td>05:40</td>
-                <td>05</td>
-                <td>05:50</td>
-                <td>2</td>
-              </tr>
-
-              <tr>
-                <td>MANGALURU JN</td>
-                <td>MAJN</td>
-                <td>10:20</td>
-                <td>0</td>
-                <td>--</td>
-                <td>2</td>
-              </tr>
-
-              <tr>
-                <td>LOKMANYATILAK T</td>
-                <td>LTT</td>
-                <td>20:20</td>
-                <td>30</td>
-                <td>20:50</td>
-                <td>1</td>
-              </tr>
-              <tr>
-                <td>RATNAGIRI</td>
-                <td>RN</td>
-                <td>01:20</td>
-                <td>10</td>
-                <td>01:30</td>
-                <td>2</td>
-              </tr>
-              <tr>
-                <td>MADGAON</td>
-                <td>MAO</td>
-                <td>05:40</td>
-                <td>05</td>
-                <td>05:50</td>
-                <td>2</td>
-              </tr>
-
-              <tr>
-                <td>MANGALURU JN</td>
-                <td>MAJN</td>
-                <td>10:20</td>
-                <td>0</td>
-                <td>--</td>
-                <td>2</td>
-              </tr>
+              {trainDetail?.stations?.map((station, index) => (
+                <tr key={index}>
+                  <td>{station.name}</td>
+                  <td>{station.arrivalDate}</td>
+                  <td>{station.arrivalTime}</td>
+                  <td>{station.departureDate}</td>
+                  <td>{station.departureTime}</td>
+                  <td>{station.haltTime}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
 
-        <a href="#" className={styles.bookNowBtn}>
-          Book Now
-        </a>
+        {canBookTicket(
+          trainDetail.sourceArrivalDate,
+          trainDetail.sourceArrivalTime,
+        ) ? (
+          <Link
+            to={`/train/reservation/${trainDetail._id}`}
+            className={styles.bookNowBtn}
+          >
+            Book Now
+          </Link>
+        ) : (
+          <button
+            onClick={() => toast.error('Can only book 3 Hour prior')}
+            className={styles.bookNowBtn}
+          >
+            Book Now
+          </button>
+        )}
       </div>
     </div>
   );

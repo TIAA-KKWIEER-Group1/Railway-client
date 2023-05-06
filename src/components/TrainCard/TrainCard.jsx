@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
+import { toast } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import canBookTicket from '../../utils/canBookTicket';
 import styles from './TrainCard.module.css';
 
 function TrainCard({ train }) {
@@ -12,7 +14,7 @@ function TrainCard({ train }) {
         </div>
         <div className={styles.navbarItem}>
           <span className={styles.navbarLabel}>Date:</span>
-          <span className={styles.navbarValue}>{train.departureDate}</span>
+          <span className={styles.navbarValue}>{train.sourceArrivalDate}</span>
         </div>
         <div className={styles.navbarItem}>
           <span className={styles.navbarLabel}>Source:</span>
@@ -26,21 +28,48 @@ function TrainCard({ train }) {
       <div className={styles.cardDetails}>
         <div className={styles.cardInfo}>
           <h2 className={styles.cardTitle}>Train Name</h2>
-          <p className={styles.cardText}>Date: 10/05/2023</p>
-          <p className={styles.cardText}>Arrival Time: 00:00:00 AM</p>
-          <p className={styles.cardText}>Departure Time: 00:00:00 AM</p>
+          <p className={styles.cardText}>
+            Departure Date: {train.sourceDepartureDate}
+          </p>
+          <p className={styles.cardText}>
+            Departure Time: {train.sourceDepartureTime}
+          </p>
+          <p className={styles.cardText}>
+            Arrival Date: {train.destinationArrivalDate}
+          </p>
+
+          <p className={styles.cardText}>
+            Arrival Time: {train.destinationArrivalTime}
+          </p>
         </div>
         <div className={styles.cardButtons}>
-          <button className={styles.btn}>Sleeper</button>
-          <button className={styles.btn}>AC First Class</button>
+          <button className={styles.btn}>
+            AC First: {train.availableACCoach}
+          </button>
+          <button className={styles.btn}>
+            General: {train.availableGeneralCoach}
+          </button>
+          <button className={styles.btn}>
+            Sleeper Coach: {train.availableSleeperCoach}
+          </button>
         </div>
         <div className={styles.btnGroup}>
-          <Link
-            to={`/train/reservation/${train._id}`}
-            className={styles.bookNowBtn}
-          >
-            Book Now
-          </Link>
+          {canBookTicket(train.sourceArrivalDate, train.sourceArrivalTime) ? (
+            <Link
+              to={`/train/reservation/${train._id}`}
+              className={styles.bookNowBtn}
+            >
+              Book Now
+            </Link>
+          ) : (
+            <button
+              onClick={() => toast.error('Can only book 3 Hour prior')}
+              className={styles.bookNowBtn}
+            >
+              Book Now
+            </button>
+          )}
+
           <Link to={`/trains/${train._id}`} className={styles.viewDetailsBtn}>
             View more
           </Link>
