@@ -11,6 +11,7 @@ import TrainDetail from '../pages/TrainDetail/TrainDetail';
 import TrainSearch from '../pages/TrainSearch/TrainSearch';
 import UserLogin from '../pages/UserLogin/UserLogin';
 import UserRegister from '../pages/UserRegister/UserRegister';
+import ReservationForm from '../pages/ReservationForm/ReservationForm';
 
 function Router() {
   const { pathname } = useLocation();
@@ -40,8 +41,8 @@ function Router() {
 
       {/* User Pages */}
       <Route path="/trains" element={<TrainSearch />} />
-      <Route path="/trains/:id" element={<TrainDetail />} />
-
+      <Route path="/trains/:id" element={<TrainDetail />} />  
+      <Route path="/train/reservation" element={<ReservationForm />} />
       {/* Not Found */}
       <Route path="*" element={<NotFound />} />
     </Routes>

@@ -1,0 +1,131 @@
+.container {
+  max-width: 700px;
+  width: 100%;
+  background: #fff;
+  padding: 5px 30px;
+  border-radius: 5px;
+  margin-top: 100px;
+
+  height: 100%;
+}
+.container .title {
+  font-size: 25px;
+  font-weight: 500;
+  position: relative;
+}
+.container .title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 30px;
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+.column {
+  float: right;
+  width: 30%;
+  padding: 10px;
+  height: 150px;
+  margin-left: 21px;
+}
+
+.row:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+i {
+  margin-top: 30px;
+  margin-left: 20px;
+}
+.formAdder {
+  background-color: rgb(34, 82, 33);
+  color: white;
+  padding: 5px;
+  border-radius: 8px;
+  justify-content: space-around;
+  width:50px;
+ 
+}
+
+.container form .userdetails {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px 0 12px 0;
+}
+form .userdetails .inputbox {
+  margin-bottom: 15px;
+  width: calc(100% / 3 - 15px);
+}
+.userdetails .inputbox .details {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+.userdetails .inputbox input {
+  height: 45px;
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding-left: 15px;
+  font-size: 16px;
+  border-bottom-width: 2px;
+  transition: all 0.3 ease;
+}
+select {
+  height: 45px;
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding-left: 15px;
+  font-size: 16px;
+  border-bottom-width: 2px;
+  transition: all 0.3 ease;
+}
+.userdetails .inputbox input:focus,
+.userdetails .inputbox input:valid {
+  border-color: #9b59b6;
+}
+
+form .button {
+  height: 45px;
+  margin: 30px 0;
+}
+form .button input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  color: #fff;
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  background: #9b59b6;
+}
+form .button input:hover {
+  background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+}
+@media (max-width: 584px) {
+  .container {
+    max-width: 100%;
+  }
+  form .userdetails .inputbox {
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  form .genderdetails .category {
+    width: 100%;
+  }
+  .container form .userdetails {
+    max-height: 300px;
+    overflow-y: scroll;
+  }
+  .userdetails::-webkit-scrollbar {
+    width: 0;
+  }
+}
