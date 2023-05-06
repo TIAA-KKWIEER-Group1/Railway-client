@@ -1,0 +1,122 @@
+.banner {
+  position: relative;
+
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  gap: 2rem;
+  padding-top: 4rem;
+}
+
+.banner::before {
+  content: '';
+
+  position: absolute;
+  inset: 0;
+
+  background-image: url('../../assets/images/home/train4.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(2px);
+
+  z-index: -1;
+}
+
+.trainSearchFormContainer {
+  flex-basis: 45%;
+
+  background-color: rgb(var(--bg-white));
+  border-radius: 5px;
+  padding: 1.5rem 2rem;
+}
+
+.trainSearchFormContainer > h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: rgb(63, 62, 62);
+
+  font-size: xx-large;
+  font-weight: bolder;
+}
+
+.bannerDetail {
+  flex-basis: 40%;
+}
+
+.inputContainer label {
+  display: block;
+  align-items: left;
+  font-weight: bold;
+}
+
+.inputContainer {
+  margin-bottom: 1rem;
+}
+
+.inputContainer > input {
+  width: 100%;
+  padding: 0.25rem;
+}
+
+.arrowIcon > svg {
+  margin-inline: auto;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.buttonAvailability {
+  display: block;
+  margin-inline: auto;
+  margin-top: 1.5rem;
+  color: #fff;
+  background-color: rgb(63, 62, 62);
+  font-weight: bold;
+
+  text-align: center;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+}
+
+.bannerDetail {
+  position: relative;
+  top: -5rem;
+}
+
+.heading {
+  color: rgb(63, 62, 62);
+
+  font-size: 3rem;
+  font-weight: bolder;
+  text-align: left;
+
+  line-height: 1;
+}
+
+.paragraph {
+  color: white;
+  max-width: 50ch;
+}
+
+.swapIcon {
+  cursor: pointer;
+}
+
+@media (max-width: 760px) {
+  .banner {
+    gap: 0;
+  }
+
+  .bannerDetail {
+    display: none;
+  }
+
+  .trainSearchFormContainer {
+    flex-basis: 90%;
+  }
+}

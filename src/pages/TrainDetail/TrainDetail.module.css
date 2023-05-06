@@ -1,10 +1,4 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
-body {
+.TrainDetail {
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -83,8 +77,8 @@ body {
   padding: 12px 15px;
 }
 
-th,
-td {
+.TrainDetail th,
+.TrainDetail td {
   width: 20%;
   margin-left: 3rem;
   padding: 12px 15px;
@@ -92,17 +86,17 @@ td {
   border-bottom: 1px solid #ddd;
 }
 
-th:first-child,
-td:first-child {
+.TrainDetail th:first-child,
+.TrainDetail td:first-child {
   padding-left: 40px;
 }
 
-th:last-child,
-td:last-child {
+.TrainDetail th:last-child,
+.TrainDetail td:last-child {
   padding-right: 20px;
 }
 
-tbody tr:hover {
+.TrainDetail tbody tr:hover {
   background-color: #f5f5f5;
 }
 
