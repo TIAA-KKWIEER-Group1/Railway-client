@@ -9,7 +9,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url('img/train2.jpg');
+  background: url('../../assets/images/trainDetail/train2.jpg');
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
