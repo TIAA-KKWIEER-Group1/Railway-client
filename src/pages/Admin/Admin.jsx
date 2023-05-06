@@ -21,8 +21,7 @@ function Admin() {
     const formData = new FormData();
     formData.append('file', file);
 
-    const url =
-      import.meta.env.VITE_REACT_APP_BASE_API_URL + '/api/admin/csvData';
+    const url = import.meta.env.VITE_REACT_APP_BASE_API_URL + '/admin/csvData';
 
     axios
       .post(url, formData)
