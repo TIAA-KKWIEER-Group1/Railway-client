@@ -125,3 +125,11 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
+.wrapper button:disabled {
+  background-color: gray;
+}
+
+.fileName {
+  font-weight: 700;
+}
