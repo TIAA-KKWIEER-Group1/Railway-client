@@ -1,3 +1,7 @@
+.TrainSearch {
+  margin-top: 6rem;
+}
+
 .container {
   padding: 20px;
 }
@@ -136,22 +140,6 @@
   cursor: pointer;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: white;
-}
-
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #333;
-  color: #fff;
-  padding: 10px;
-}
-
 .logo a {
   font-size: 24px;
   color: #fff;
@@ -163,7 +151,7 @@ nav {
   align-items: center;
 }
 
-label {
+.TrainSearch label {
   font-size: 18px;
   margin-right: 10px;
 }
@@ -179,9 +167,9 @@ label {
   margin: 20px 0;
 }
 
-input[type='text'],
-input[type='date'],
-input[type='time'] {
+.TrainSearch input[type='text'],
+.TrainSearch input[type='date'],
+.TrainSearch input[type='time'] {
   padding: 10px;
   margin-right: 10px;
   border: none;
@@ -190,14 +178,14 @@ input[type='time'] {
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
 }
 
-input[type='text']:focus,
-input[type='date']:focus,
-input[type='time']:focus {
+.TrainSearch input[type='text']:focus,
+.TrainSearch input[type='date']:focus,
+.TrainSearch input[type='time']:focus {
   outline: none;
   box-shadow: 0 2px 5px rgba(81, 203, 238, 0.5);
 }
 
-button[type='submit'] {
+.TrainSearch button[type='submit'] {
   padding: 15px;
 
   background-color: darkviolet;
@@ -209,7 +197,7 @@ button[type='submit'] {
   transition: background-color 0.3s ease-in-out;
 }
 
-button[type='submit']:hover {
+.TrainSearch button[type='submit']:hover {
   background-color: rgb(96, 1, 137);
 }
 
@@ -219,9 +207,9 @@ button[type='submit']:hover {
     align-items: stretch;
   }
 
-  input[type='text'],
-  input[type='date'],
-  input[type='time'] {
+  .TrainSearch input[type='text'],
+  .TrainSearch input[type='date'],
+  .TrainSearch input[type='time'] {
     margin: 10px 0;
   }
 }
