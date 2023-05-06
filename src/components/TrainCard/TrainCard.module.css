@@ -1,0 +1,215 @@
+.TrainSearch {
+  margin-top: 6rem;
+}
+
+.container {
+  padding: 20px;
+}
+
+.cardHorizontal {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: lightgray;
+  border-radius: 4px 4px 0 0;
+}
+
+.navbarItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.navbarLabel {
+  font-size: 16px;
+  color: #555;
+}
+
+.navbarValue {
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+  margin-top: 5px;
+}
+
+.cardDetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+}
+
+.cardDetails h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.cardDetails p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.btnGroup {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bookNowBtn {
+  background-color: darkviolet;
+  border-radius: 5px;
+  color: #fff;
+  display: inline-block;
+  font-size: 18px;
+  padding: 10px 40px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.bookNowBtn:hover {
+  background-color: rgb(96, 1, 137);
+  cursor: pointer;
+}
+
+.viewDetailsBtn {
+  background-color: darkviolet;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: white;
+  display: inline-block;
+  font-size: 18px;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  margin-left: 10px;
+}
+
+.viewDetailsBtn:hover {
+  background-color: rgb(96, 1, 137);
+  cursor: pointer;
+}
+
+.cardInfo {
+  margin-bottom: 10px;
+}
+
+.cardButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+.btn {
+  background-color: #c1c1c1;
+  color: black;
+  border: none;
+  border-radius: 2px;
+  font-size: 16px;
+  padding: 10px 20px;
+  margin-right: 20px;
+
+  text-align: left;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  flex-basis: calc(25% - 200px);
+}
+
+.btn p {
+  font-size: 14px;
+}
+.btn:hover {
+  background-color: #a1a1a1;
+  cursor: pointer;
+}
+
+.logo a {
+  font-size: 24px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-items form {
+  display: flex;
+  align-items: center;
+}
+
+.TrainSearch label {
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+.available span {
+  color: lightblue;
+}
+
+.searchContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.TrainSearch input[type='text'],
+.TrainSearch input[type='date'],
+.TrainSearch input[type='time'] {
+  padding: 10px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.TrainSearch input[type='text']:focus,
+.TrainSearch input[type='date']:focus,
+.TrainSearch input[type='time']:focus {
+  outline: none;
+  box-shadow: 0 2px 5px rgba(81, 203, 238, 0.5);
+}
+
+.TrainSearch button[type='submit'] {
+  padding: 15px;
+
+  background-color: darkviolet;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.TrainSearch button[type='submit']:hover {
+  background-color: rgb(96, 1, 137);
+}
+
+@media screen and (max-width: 480px) {
+  .search-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .TrainSearch input[type='text'],
+  .TrainSearch input[type='date'],
+  .TrainSearch input[type='time'] {
+    margin: 10px 0;
+  }
+}

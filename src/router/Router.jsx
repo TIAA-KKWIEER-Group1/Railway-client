@@ -51,7 +51,7 @@ function Router() {
       {/* User Pages */}
       <Route path="/trains" element={<TrainSearch />} />
       <Route path="/trains/:id" element={<TrainDetail />} />
-      <Route path="/train/reservation" element={<ReservationForm />} />
+      <Route path="/train/reservation/:id" element={<ReservationForm />} />
 
       {/* Not Found */}
       <Route path="*" element={<NotFound />} />

@@ -1,12 +1,20 @@
 import axios from 'axios';
-import fakeRequest from './fakeRequest';
 import { BASE_API_URL } from './serverConfig';
 
 const getTrainSearchData = (filter) => {
-  const trains = [{ name: 'boy' }, { name: 'girl' }];
-  console.log(filter);
+  const date = new Date(filter.date);
 
-  return fakeRequest({}, trains).then((response) => response.data);
+  const url = new URL(`${BASE_API_URL}/train/search`);
+  url.searchParams.set('source', filter.source);
+  url.searchParams.set('destination', filter.destination);
+  url.searchParams.set(
+    'date',
+    `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`,
+  );
+
+  console.log(url.href);
+
+  return axios.get(url.href).then((response) => response.data.data);
 };
 
 const getAllStations = () => {
