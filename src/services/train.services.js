@@ -1,4 +1,5 @@
 import axios from 'axios';
+import fakeRequest from './fakeRequest';
 import { BASE_API_URL } from './serverConfig';
 
 const getTrainSearchData = (filter) => {
@@ -22,4 +23,20 @@ const getAllStations = () => {
   return axios.get(url).then((response) => response.data.data);
 };
 
-export { getTrainSearchData, getAllStations };
+const getTrainDetail = (id) => {
+  const url = BASE_API_URL + `/train/stations/${id}`;
+  return axios.get(url).then((response) => response.data.data);
+};
+
+const makeTrainReservation = (data) => {
+  return fakeRequest(data, { message: 'done' }).then(
+    (response) => response.data,
+  );
+};
+
+export {
+  getTrainSearchData,
+  getAllStations,
+  getTrainDetail,
+  makeTrainReservation,
+};

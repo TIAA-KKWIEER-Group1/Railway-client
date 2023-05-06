@@ -1,173 +1,215 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { toast } from 'react-hot-toast';
+import { useParams } from 'react-router-dom';
+import {
+  getTrainDetail,
+  makeTrainReservation,
+} from '../../services/train.services';
+import Loading from '../Loading/Loading';
 import styles from './ReservationForm.module.css';
+
 function ReservationForm() {
-  const [arr, setArr] = useState([]);
-  const addDetail = (e) => {
-    e.preventDefault();
-    let ele = 0;
-    setArr([...arr, ele]);
+  // TODO: Update the detail of the train
+  const params = useParams();
+
+  // Get train details when state is loaded
+  const [trainDetail, setTrainDetail] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getTrainDetail(params.id);
+        setTrainDetail(data);
+      } catch (error) {
+        console.log(error);
+        toast.error('Error Booking train');
+      }
+      setIsLoading(false);
+    };
+
+    fetchData();
+  }, [params]);
+
+  const [passengers, setPassengers] = useState([
+    {
+      firstName: '',
+      lastName: '',
+      middleName: '',
+      age: 0,
+      gender: '',
+      class: '',
+    },
+  ]);
+
+  const addDetail = () => {
+    let passenger = {
+      firstName: '',
+      lastName: '',
+      middleName: '',
+      age: '',
+      gender: '',
+      class: '',
+    };
+
+    setPassengers([...passengers, passenger]);
   };
 
-  const deleteDetail = (e, index) => {
-    e.preventDefault();
-    let data = [...arr];
-    data.splice(index, 1);
-    setArr(data);
+  const deleteDetail = () => {
+    let data = [...passengers];
+    data.pop();
+    setPassengers(data);
   };
+
+  const handleReservation = async () => {
+    console.log('Reservation');
+    console.log(trainDetail);
+    console.log(passengers);
+
+    // submit the reservation form
+    try {
+      const data = {
+        trainId: trainDetail._id,
+        passengers,
+      };
+      const responseData = await makeTrainReservation(data);
+      toast.success(responseData?.message || 'Reservation Successful');
+    } catch (error) {
+      toast.error('Something went wrong');
+    }
+  };
+
+  if (isLoading) return <Loading />;
+
   return (
     <div className={styles.container}>
-      <div className={styles.title}>Reservation</div>
+      <div className={styles.title}>Reservation Form</div>
       <center>
-        <span className={styles.details}>Train Name</span>(
-        <span className={styles.details}>Train Number</span>)
+        <span className={styles.details}>{trainDetail.name}</span>(
+        <span className={styles.details}>{trainDetail.trainNo}</span>)
       </center>
-      <div className={styles.row}>
-        <div className={styles.column}>
-          <div className={styles.content}>
-            <p>Arrival time</p>
-            <p>Date</p>
-            <p>Start station</p>
-            <br />
-          </div>
-        </div>
-        <div className={styles.column}>
-          <div className={styles.content}>
-            {/* <i _ngcontent-cdb-c68="" className={fa} fa-exchange rotate90 ></i> */}
-          </div>
-          styles.
-        </div>
-        <div className={styles.column}>
-          <div className={styles.content}>
-            <p>Departure time</p>
-            <p>Date</p>
-            <p>End station</p>
-            <br />
-          </div>
-        </div>
+
+      <div>
+        <p>From: {trainDetail.source}</p>
+        <p>To: {trainDetail.destination}</p>
       </div>
-      <div className={styles.formadder}>
-        <div className={styles.title}>passeger Details</div>
-        <form action="#">
-          <div className={styles.userdetails}>
-            <div className={styles.inputbox}>
-              <span className={styles.details}>First Name</span>
-              <input type="text" placeholder="Enter first name " required />
-            </div>
-            <div className={styles.inputbox}>
-              <span className={styles.details}>Middle Name</span>
-              <input type="text" placeholder="Enter  Middle name " required />
-            </div>
-            <div className={styles.inputbox}>
-              <span className={styles.details}>Last Name</span>
-              <input type="text" placeholder="Enter last name " required />
-            </div>
-            <div className={styles.inputbox}>
-              <span className={styles.details}>Age</span>
-              <input type="number" placeholder="Enter age" required />
-            </div>
 
-            <div className={styles.inputbox}>
-              <span className={styles.details}>Gender</span>
-              <select name="">
-                <option disabled selected>
-                  Select gender
-                </option>
-                <option>Male</option>
-                <option>Female</option>
-                <option>Other</option>
-              </select>
-            </div>
-
-            <div className={styles.inputbox}>
-              <span className={styles.details}>Select Class</span>
-              <select name="">
-                <option disabled selected>
-                  Select Class
-                </option>
-                <option>AC </option>
-
-                <option>Sleeper (SL)</option>
-                <option>General</option>
-              </select>
-            </div>
-          </div>
-          <div id="newinput"></div>
-
-          {/* New */}
-          {arr.map((a) => (
-            <div className={styles.formadder}>
-              <div className={styles.title}>passeger Details</div>
-              {/* <form action="#"> */}
+      <div className={styles.passengerForm}>
+        <div className={styles.form}>
+          {passengers.map((passenger, index) => (
+            <div className={styles.passengerForm} key={index}>
+              <div className={styles.title}>Passenger {index + 1}</div>
               <div className={styles.userdetails}>
-                <div className={styles.inputbox}>
+                <div className={styles.inputBox}>
                   <span className={styles.details}>First Name</span>
-                  <input type="text" placeholder="Enter first name " required />
+                  <input
+                    type="text"
+                    placeholder="Enter first name "
+                    required
+                    value={passenger.firstName}
+                    onChange={(e) => {
+                      const newPassengers = structuredClone(passengers);
+                      newPassengers[index].firstName = e.target.value;
+                      setPassengers(newPassengers);
+                    }}
+                  />
                 </div>
-                <div className={styles.inputbox}>
+                <div className={styles.inputBox}>
                   <span className={styles.details}>Middle Name</span>
                   <input
                     type="text"
                     placeholder="Enter  Middle name "
                     required
+                    value={passenger.middleName}
+                    onChange={(e) => {
+                      const newPassengers = structuredClone(passengers);
+                      newPassengers[index].middleName = e.target.value;
+                      setPassengers(newPassengers);
+                    }}
                   />
                 </div>
-                <div className={styles.inputbox}>
+                <div className={styles.inputBox}>
                   <span className={styles.details}>Last Name</span>
-                  <input type="text" placeholder="Enter last name " required />
+                  <input
+                    type="text"
+                    placeholder="Enter last name "
+                    required
+                    value={passenger.lastName}
+                    onChange={(e) => {
+                      const newPassengers = structuredClone(passengers);
+                      newPassengers[index].lastName = e.target.value;
+                      setPassengers(newPassengers);
+                    }}
+                  />
                 </div>
-                <div className={styles.inputbox}>
+                <div className={styles.inputBox}>
                   <span className={styles.details}>Age</span>
-                  <input type="number" placeholder="Enter age" required />
+                  <input
+                    type="number"
+                    placeholder="Enter age"
+                    required
+                    value={passenger.age}
+                    onChange={(e) => {
+                      const newPassengers = structuredClone(passengers);
+                      newPassengers[index].age = e.target.value;
+                      setPassengers(newPassengers);
+                    }}
+                  />
                 </div>
 
-                <div className={styles.inputbox}>
+                <div className={styles.inputBox}>
                   <span className={styles.details}>Gender</span>
-                  <select name="">
-                    <option disabled selected>
-                      Select gender
-                    </option>
-                    <option>Male</option>
-                    <option>Female</option>
-                    <option>Other</option>
+                  <select
+                    name="gender"
+                    value={passenger.gender}
+                    onChange={(e) => {
+                      const newPassengers = structuredClone(passengers);
+                      newPassengers[index].gender = e.target.value;
+                      setPassengers(newPassengers);
+                    }}
+                  >
+                    <option value="">Select gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
                   </select>
                 </div>
 
-                <div className={styles.inputbox}>
+                <div className={styles.inputBox}>
                   <span className={styles.details}>Select Class</span>
-                  <select name="">
-                    <option disabled selected>
-                      Select Class
-                    </option>
-                    <option>AC </option>
-
-                    <option>Sleeper (SL)</option>
-                    <option>General</option>
+                  <select
+                    name="class"
+                    value={passenger.class}
+                    onChange={(e) => {
+                      const newPassengers = structuredClone(passengers);
+                      newPassengers[index].class = e.target.value;
+                      setPassengers(newPassengers);
+                    }}
+                  >
+                    <option value="">Select Class</option>
+                    <option value="ac">AC </option>
+                    <option value="sleeper">Sleeper (SL)</option>
+                    <option value="general">General</option>
                   </select>
                 </div>
               </div>
-              <div id="newinput"></div>
-
-              {/* <div className={styles.button}>
-             <input type="submit" value="Book" />
-           </div> */}
-              {/* </form> */}
             </div>
           ))}
           <button
-            className={styles.formAdder}
+            className={styles.passengerForm}
             type="button"
             onClick={addDetail}
           >
             ADD
           </button>
           <button className={styles.btn} onClick={deleteDetail}>
-            <i className={styles.bi} bi-trash></i>
             Delete
           </button>
+
           <div className={styles.button}>
-            <input type="submit" value="Book" />
+            <input type="submit" value="Book" onClick={handleReservation} />
           </div>
-        </form>
+        </div>
       </div>
     </div>
   );

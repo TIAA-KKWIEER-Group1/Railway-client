@@ -45,26 +45,25 @@ i {
   padding: 5px;
   border-radius: 8px;
   justify-content: space-around;
-  width:50px;
- 
+  width: 50px;
 }
 
-.container form .userdetails {
+.container .form .userdetails {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   margin: 20px 0 12px 0;
 }
-form .userdetails .inputbox {
+.form .userdetails .inputBox {
   margin-bottom: 15px;
   width: calc(100% / 3 - 15px);
 }
-.userdetails .inputbox .details {
+.userdetails .inputBox .details {
   display: block;
   font-weight: 500;
   margin-bottom: 5px;
 }
-.userdetails .inputbox input {
+.userdetails .inputBox input {
   height: 45px;
   width: 100%;
   outline: none;
@@ -86,16 +85,16 @@ select {
   border-bottom-width: 2px;
   transition: all 0.3 ease;
 }
-.userdetails .inputbox input:focus,
-.userdetails .inputbox input:valid {
+.userdetails .inputBox input:focus,
+.userdetails .inputBox input:valid {
   border-color: #9b59b6;
 }
 
-form .button {
+.form .button {
   height: 45px;
   margin: 30px 0;
 }
-form .button input {
+.form .button input {
   height: 100%;
   width: 100%;
   outline: none;
@@ -107,21 +106,21 @@ form .button input {
   letter-spacing: 1px;
   background: #9b59b6;
 }
-form .button input:hover {
+.form .button input:hover {
   background: linear-gradient(-135deg, #71b7e6, #9b59b6);
 }
 @media (max-width: 584px) {
   .container {
     max-width: 100%;
   }
-  form .userdetails .inputbox {
+  .form .userdetails .inputBox {
     margin-bottom: 15px;
     width: 100%;
   }
-  form .genderdetails .category {
+  .form .genderdetails .category {
     width: 100%;
   }
-  .container form .userdetails {
+  .container .form .userdetails {
     max-height: 300px;
     overflow-y: scroll;
   }
