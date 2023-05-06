@@ -1,16 +1,53 @@
+import { useQuery } from '@tanstack/react-query';
+import { useSearchParams } from 'react-router-dom';
 import styles from './TrainSearch.module.css';
 function TrainSearch() {
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  let filter = {
+    date: searchParams.get('date') || '',
+    source: searchParams.get('source') || '',
+    destination: searchParams.get('destination') || '',
+  };
+
+  const trainsList = useQuery({
+    queryKey: ['train-search', filter],
+    queryFn: () => {
+      console.log('Train Search');
+      console.log(trainsList);
+      return { d: 1 };
+    },
+  });
+
   return (
     <div className={styles.TrainSearch}>
       <div className={styles.searchContainer}>
-        <form action="#">
-          <input type="text" placeholder="Destination..." name="destination" />
-          <input type="text" placeholder="Source..." name="source" />
-          <input type="date" name="date" />
-          <input type="time" name="time" />
-          <button type="submit" />
-          Search
-        </form>
+        <input
+          type="text"
+          placeholder="Destination..."
+          name="destination"
+          value={filter.destination}
+          onChange={(e) => {
+            setSearchParams({ ...filter, destination: e.target.value });
+          }}
+        />
+        <input
+          type="text"
+          placeholder="Source..."
+          name="source"
+          value={filter.source}
+          onChange={(e) => {
+            setSearchParams({ ...filter, source: e.target.value });
+          }}
+        />
+        <input
+          type="date"
+          name="date"
+          value={filter.date}
+          onChange={(e) => {
+            setSearchParams({ ...filter, date: e.target.value });
+          }}
+        />
       </div>
 
       <main>

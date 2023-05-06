@@ -1,7 +1,7 @@
-import { BsArrowDownUp } from 'react-icons/bs';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
+import Banner from '../../components/Banner/Banner';
 import Footer from '../../components/Footer/Footer';
 import styles from './Home.module.css';
 
@@ -16,39 +16,7 @@ function Home() {
 
   return (
     <main className={styles.Home}>
-      <section className={styles.banner}>
-        <div className={styles.trainSearchFormContainer}>
-          <h2>Railway Reservation</h2>
-          <div className={styles.trainSearchForm}>
-            <div className={styles.inputContainer}>
-              <label>Date</label>
-              <input type="date" name="date" />
-            </div>
-            <div className={styles.inputContainer}>
-              <label>Source</label>
-              <input type="text" name="source" />
-            </div>
-            <div className={styles.arrowIcon}>
-              <BsArrowDownUp />
-            </div>
-            <div className={styles.inputContainer}>
-              <label>Destination</label>
-              <input type="text" name="destination" />
-            </div>
-            <button type="button" className={styles.buttonAvailability}>
-              Check Availability
-            </button>
-          </div>
-        </div>
-        <div className={styles.bannerDetail}>
-          <h1 className={styles.heading}>MAKE YOUR RESERVATION</h1>
-          <p className={styles.paragraph}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-            aliquet, felis in vulputate malesuada, orci tellus porta tellus,
-            vitae euismod risus purus sit amet enim.
-          </p>
-        </div>
-      </section>
+      <Banner />
 
       <section className={styles.allInformation}>
         <div className={styles.informationContainer}>
