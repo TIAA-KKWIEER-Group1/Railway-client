@@ -1,17 +1,9 @@
-/* Import Google font - Poppins */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
-body {
+.Admin {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: #fcfcfc;
+  background: rgb(var(--bg-light));
 }
 
 ::selection {
@@ -31,7 +23,7 @@ body {
   font-weight: 600;
   text-align: center;
 }
-.wrapper form {
+.wrapper .container {
   height: 167px;
   display: flex;
   cursor: pointer;
@@ -42,18 +34,18 @@ body {
   border-radius: 5px;
   border: 2px dashed #9b59b6;
 }
-form :where(i, p) {
+.Admin .container :where(svg, p) {
   color: #9b59b6;
 }
-form i {
+.Admin .container svg {
   font-size: 50px;
 }
-form p {
+.Admin .container p {
   margin-top: 15px;
   font-size: 16px;
 }
 
-section .row {
+.Admin .row {
   margin-bottom: 10px;
   background: #e9f0ff;
   list-style: none;
@@ -63,11 +55,11 @@ section .row {
   align-items: center;
   justify-content: space-between;
 }
-section .row i {
+.Admin .row svg {
   color: #9b59b6;
   font-size: 30px;
 }
-section .details span {
+.Admin .details span {
   font-size: 14px;
 }
 .progress-area .row .content {
@@ -80,7 +72,7 @@ section .details span {
   margin-bottom: 7px;
   justify-content: space-between;
 }
-.progress-area .content .progress-bar {
+.progress-area .content .progressBar {
   height: 6px;
   width: 100%;
   margin-bottom: 4px;
@@ -93,40 +85,43 @@ section .details span {
   background: #9b59b6;
   border-radius: inherit;
 }
-.uploaded-area {
+.uploadedArea {
   max-height: 232px;
   overflow-y: scroll;
 }
-.uploaded-area.onprogress {
+.uploadedArea.onprogress {
   max-height: 150px;
 }
-.uploaded-area::-webkit-scrollbar {
+.uploadedArea::-webkit-scrollbar {
   width: 0px;
 }
-.uploaded-area .row .content {
+.uploadedArea .row .content {
   display: flex;
   align-items: center;
 }
-.uploaded-area .row .details {
+.uploadedArea .row .details {
   display: flex;
   margin-left: 15px;
   flex-direction: column;
 }
-.uploaded-area .row .details .size {
+.uploadedArea .row .details .size {
   color: #404040;
   font-size: 11px;
 }
-.uploaded-area i.fa-check {
+
+.uploadedArea svg.fa-check {
   font-size: 16px;
 }
+
 .wrapper button {
-  margin: auto;
+  display: block;
+  margin-inline: auto;
   justify-content: center;
   color: #ffffff;
   font-size: large;
   width: 80%;
   background-color: #9b59b6;
   border: 1px solid #9b59b6;
-  margin-left: 30px;
+  border-radius: 5px;
   cursor: pointer;
 }
