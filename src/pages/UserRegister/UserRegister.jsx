@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
-import { registerUser } from '../../services/user.services';
+import { getRegisterOTP, registerUser } from '../../services/user.services';
 import styles from './UserRegister.module.css';
 
 function UserRegister() {
@@ -19,6 +19,8 @@ function UserRegister() {
       toast.error(error.response.data.message);
     },
     onSuccess: () => {
+      toast.success('User Registered Successfully');
+
       queryClient.refetchQueries(['user-status']);
       navigate('/');
     },
@@ -66,9 +68,23 @@ function UserRegister() {
     onSubmit: (values) => mutate(values),
   });
 
-  const getOtp = () => {
-    // TODO: GET OTP
-    console.log('Get the OTP');
+  const getOtp = async () => {
+    if (!formik.values.phone) {
+      toast.error('Please enter mobile number');
+      return;
+    }
+
+    // Send otp
+    try {
+      await getRegisterOTP(formik.values.phone);
+      toast.success('OTP Sent Successfully');
+    } catch (error) {
+      if (error?.response?.data?.message) {
+        toast.error(error?.response?.data?.message);
+      } else {
+        toast.error('Something went wrong');
+      }
+    }
   };
 
   return (

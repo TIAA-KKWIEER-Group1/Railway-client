@@ -1,25 +1,47 @@
-import fakeRequest from './fakeRequest';
+import axios from 'axios';
+import { BASE_API_URL } from './serverConfig';
 
-const getUserStatus = async () => {
-  return fakeRequest({}, { isLoggedIn: false, isAdmin: false }).then(
-    (response) => response.data,
-  );
+const getUserStatus = () => {
+  const url = BASE_API_URL + '/user/status';
+  return axios
+    .get(url, { withCredentials: true })
+    .then((response) => response.data);
 };
 
-const loginUser = async (mobile, password) => {
-  console.log(mobile, password);
+const loginUser = (mobileNo, password) => {
+  const url = BASE_API_URL + '/user/login';
+  const body = {
+    mobileNo,
+    password,
+  };
 
-  return fakeRequest({}, { isLoggedIn: true }).then(
-    (response) => response.data,
-  );
+  return axios.post(url, body, { withCredentials: true });
 };
 
-const registerUser = async (user, otp) => {
-  console.log(user, otp);
+const registerUser = (user, otp) => {
+  const url = BASE_API_URL + '/user/register/verify';
+  const body = {
+    otp,
+    firstName: user.firstName,
+    lastName: user.lastName,
+    mobileNo: user.phone,
+    password: user.password,
+    email: user.email,
+  };
 
-  return fakeRequest({}, { isLoggedIn: false }).then(
-    (response) => response.data,
-  );
+  return axios.post(url, body);
 };
 
-export { getUserStatus, loginUser, registerUser };
+const getRegisterOTP = (mobileNo) => {
+  const url = BASE_API_URL + '/user/register/sendotp';
+  const body = { mobileNo };
+
+  return axios.post(url, body);
+};
+
+const logoutUser = () => {
+  const url = BASE_API_URL + '/user/logout';
+  return axios.post(url, {}, { withCredentials: true });
+};
+
+export { getUserStatus, loginUser, registerUser, getRegisterOTP, logoutUser };

@@ -1,11 +1,15 @@
 import { useRef, useState } from 'react';
 import { MdOutlineClose } from 'react-icons/md';
 import { RxHamburgerMenu } from 'react-icons/rx';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import useOutsideAlerter from '../../hooks/useOutsideAlerter';
+import LogoutButton from '../LogoutButton/LogoutButton';
 import styles from './Navbar.module.css';
 
 function Navbar() {
+  const user = useSelector((state) => state.user);
+
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   const handleCloseNavbar = () => {
@@ -53,15 +57,21 @@ function Navbar() {
             <li className={styles.navItem}>
               <Link to="/">Home</Link>
             </li>
-            <li className={styles.navItem}>
-              <Link to="/user/login">User Login</Link>
-            </li>
-            <li className={styles.navItem}>
-              <Link to="/user/register">User Register</Link>
-            </li>
-            <li className={styles.navItem}>
-              <Link to="/admin/login">Admin Login</Link>
-            </li>
+            {user?.isLoggedIn ? (
+              <LogoutButton>Logout</LogoutButton>
+            ) : (
+              <>
+                <li className={styles.navItem}>
+                  <Link to="/user/login">User Login</Link>
+                </li>
+                <li className={styles.navItem}>
+                  <Link to="/user/register">User Register</Link>
+                </li>
+                <li className={styles.navItem}>
+                  <Link to="/admin/login">Admin Login</Link>
+                </li>
+              </>
+            )}
           </ul>
         </nav>
       </div>

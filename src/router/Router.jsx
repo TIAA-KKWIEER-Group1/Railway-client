@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import useUserStatus from '../hooks/useUserStatus';
 import Admin from '../pages/Admin/Admin';
@@ -7,13 +8,15 @@ import Error from '../pages/Error/Error';
 import Home from '../pages/Home/Home';
 import Loading from '../pages/Loading/Loading';
 import NotFound from '../pages/NotFound/NotFound';
+import ReservationForm from '../pages/ReservationForm/ReservationForm';
 import TrainDetail from '../pages/TrainDetail/TrainDetail';
 import TrainSearch from '../pages/TrainSearch/TrainSearch';
 import UserLogin from '../pages/UserLogin/UserLogin';
 import UserRegister from '../pages/UserRegister/UserRegister';
-import ReservationForm from '../pages/ReservationForm/ReservationForm';
 
 function Router() {
+  const user = useSelector((state) => state.user);
+
   const { pathname } = useLocation();
   const { isLoading, isError } = useUserStatus();
 
@@ -32,17 +35,24 @@ function Router() {
       <Route path="/" element={<Home />} />
 
       {/* Authentication */}
-      <Route path="/user/login" element={<UserLogin />} />
-      <Route path="/user/register" element={<UserRegister />} />
-      <Route path="/admin/login" element={<AdminLogin />} />
+      {!user.isLoggedIn ? (
+        <>
+          <Route path="/user/login" element={<UserLogin />} />
+          <Route path="/user/register" element={<UserRegister />} />
+          <Route path="/admin/login" element={<AdminLogin />} />
+        </>
+      ) : null}
 
       {/* Admin Page */}
-      <Route path="/admin" element={<Admin />} />
+      {user.isLoggedIn && user.isAdmin ? (
+        <Route path="/admin" element={<Admin />} />
+      ) : null}
 
       {/* User Pages */}
       <Route path="/trains" element={<TrainSearch />} />
-      <Route path="/trains/:id" element={<TrainDetail />} />  
+      <Route path="/trains/:id" element={<TrainDetail />} />
       <Route path="/train/reservation" element={<ReservationForm />} />
+
       {/* Not Found */}
       <Route path="*" element={<NotFound />} />
     </Routes>

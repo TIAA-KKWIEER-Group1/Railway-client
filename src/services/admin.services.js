@@ -1,10 +1,14 @@
-import fakeRequest from './fakeRequest';
+import axios from 'axios';
+import { BASE_API_URL } from './serverConfig';
 
-const loginAdmin = async (email, password) => {
-  console.log(email, password);
-  return fakeRequest({}, { isLoggedIn: true }).then(
-    (response) => response.data,
-  );
+const loginAdmin = (username, password) => {
+  const url = BASE_API_URL + '/admin/login';
+  const body = {
+    userName: username,
+    password,
+  };
+
+  return axios.post(url, body, { withCredentials: true });
 };
 
 export { loginAdmin };

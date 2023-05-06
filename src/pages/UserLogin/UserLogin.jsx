@@ -21,10 +21,12 @@ function UserLogin() {
 
   const { mutate, isLoading } = useMutation({
     mutationFn: (user) => loginUser(user.mobile, user.password),
-    onError: (error) => {
-      toast.error(error.response.data.message);
+    onError: () => {
+      toast.error('Error');
+      // toast.error(error.response.data.message);
     },
     onSuccess: () => {
+      toast.success('Success');
       queryClient.refetchQueries(['user-status']);
       navigate('/');
     },

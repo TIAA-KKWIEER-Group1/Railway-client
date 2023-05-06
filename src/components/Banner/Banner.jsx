@@ -28,12 +28,10 @@ function Banner() {
       !searchTrainData.source ||
       !searchTrainData.destination
     ) {
-      console.log('error');
       toast.error('Please enter valid data');
       return;
     }
 
-    console.log(searchTrainData);
     navigate(
       `/trains?date=${encodeURIComponent(
         searchTrainData.date,

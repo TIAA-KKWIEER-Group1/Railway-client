@@ -26,8 +26,7 @@ function Admin() {
 
     axios
       .post(url, formData)
-      .then((response) => {
-        console.log(response.data);
+      .then(() => {
         setIsLoading(false);
       })
       .catch((error) => {
