@@ -1,7 +1,9 @@
+import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { BsArrowDownUp } from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
+import { getAllStations } from '../../services/train.services';
 import styles from './Banner.module.css';
 
 function Banner() {
@@ -11,6 +13,12 @@ function Banner() {
     source: '',
     destination: '',
     date: '',
+  });
+
+  // Fetching all train stations
+  const { data: allStations } = useQuery({
+    queryKey: ['station-list'],
+    queryFn: () => getAllStations(),
   });
 
   const handleSwapSourceAndDestination = () => {
@@ -59,7 +67,7 @@ function Banner() {
           </div>
           <div className={styles.inputContainer}>
             <label>Source</label>
-            <input
+            <select
               type="text"
               name="source"
               value={searchTrainData.source}
@@ -69,7 +77,14 @@ function Banner() {
                   source: e.target.value,
                 })
               }
-            />
+            >
+              <option value="">Source</option>
+              {allStations?.map((station) => (
+                <option value={station} key={station}>
+                  {station}
+                </option>
+              ))}
+            </select>
           </div>
           <div className={styles.arrowIcon}>
             <BsArrowDownUp
@@ -79,8 +94,7 @@ function Banner() {
           </div>
           <div className={styles.inputContainer}>
             <label>Destination</label>
-            <input
-              type="text"
+            <select
               name="destination"
               value={searchTrainData.destination}
               onChange={(e) =>
@@ -89,7 +103,14 @@ function Banner() {
                   destination: e.target.value,
                 })
               }
-            />
+            >
+              <option value="">Destination</option>
+              {allStations?.map((station) => (
+                <option value={station} key={station}>
+                  {station}
+                </option>
+              ))}
+            </select>
           </div>
           <button
             type="button"
