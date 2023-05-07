@@ -26,7 +26,7 @@ function UserRegister() {
       toast.success('User Registered Successfully');
 
       queryClient.refetchQueries(['user-status']);
-      navigate('/');
+      navigate('/user/login');
     },
   });
 

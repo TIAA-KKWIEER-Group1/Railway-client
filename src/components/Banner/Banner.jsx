@@ -122,11 +122,12 @@ function Banner() {
         </div>
       </div>
       <div className={styles.bannerDetail}>
-        <h1 className={styles.heading}>MAKE YOUR RESERVATION</h1>
+        <h1 className={styles.heading}>Indian Railway</h1>
         <p className={styles.paragraph}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aliquet,
-          felis in vulputate malesuada, orci tellus porta tellus, vitae euismod
-          risus purus sit amet enim.
+          Indian Railways offers Exclusive Rail tour packages with confirmed
+          train tickets, sight-seeing and meals for enchanting Nilgiri
+          Mountains, Darjeeling, Kullu Manali, Kashmir, Gangtok or divine tours
+          of Mata Vaishno Devi, Rameswaram, Madurai, Shirdi, Tirupati etc.
         </p>
       </div>
     </section>

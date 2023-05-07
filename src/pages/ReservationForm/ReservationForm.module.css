@@ -7,7 +7,9 @@
   margin-top: 100px;
 
   height: 100%;
+  margin-inline: auto;
 }
+
 .container .title {
   font-size: 25px;
   font-weight: 500;
@@ -20,7 +22,7 @@
   bottom: 0;
   height: 3px;
   width: 30px;
-  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+  background: linear-gradient(135deg, #71b7e6, rgb(var(--accent-color)));
 }
 .column {
   float: right;
@@ -87,7 +89,7 @@ select {
 }
 .userdetails .inputBox input:focus,
 .userdetails .inputBox input:valid {
-  border-color: #9b59b6;
+  border-color: rgb(var(--accent-color));
 }
 
 .form .button {
@@ -104,11 +106,13 @@ select {
   font-weight: 500;
   border-radius: 5px;
   letter-spacing: 1px;
-  background: #9b59b6;
+  background: rgb(var(--accent-color));
 }
 .form .button input:hover {
-  background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+  background: linear-gradient(-135deg, #71b7e6, rgb(var(--accent-color)));
+  cursor: pointer;
 }
+
 @media (max-width: 584px) {
   .container {
     max-width: 100%;
