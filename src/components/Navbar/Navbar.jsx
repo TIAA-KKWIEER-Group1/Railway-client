@@ -58,7 +58,9 @@ function Navbar() {
               <Link to="/">Home</Link>
             </li>
             {user?.isLoggedIn ? (
-              <LogoutButton>Logout</LogoutButton>
+              <LogoutButton className="default-button default-outline-button">
+                Logout
+              </LogoutButton>
             ) : (
               <>
                 <li className={styles.navItem}>

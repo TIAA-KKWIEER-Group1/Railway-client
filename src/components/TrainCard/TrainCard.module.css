@@ -1,13 +1,15 @@
-.TrainSearch {
-  margin-top: 6rem;
+.TrainCard {
+  margin-bottom: 2rem;
 }
 
 .container {
-  padding: 20px;
+  padding-inline: 20px;
+  justify-content: center;
+  align-items: center;
 }
 
 .cardHorizontal {
-  background-color: #fff;
+  background-color: rgb(142, 102, 160);
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   display: flex;
@@ -16,13 +18,18 @@
   width: 100%;
 }
 
+.countGroup {
+  display: flex;
+  gap: 1rem;
+}
+
 .navbar {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background-color: lightgray;
+  background-color: rgb(var(--accent-color), 0.4);
   border-radius: 4px 4px 0 0;
 }
 
@@ -45,113 +52,42 @@
   margin-top: 5px;
 }
 
-.cardDetails {
-  display: flex;
+.trainDetails {
+  /* display: flex; */
   flex-direction: column;
-  justify-content: center;
   padding: 20px;
+  border-radius: 0 0 4px 4px;
+  background-color: rgb(243, 240, 240);
 }
 
-.cardDetails h2 {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 10px;
+.trainName {
+  font-size: 20px;
 }
 
-.cardDetails p {
-  font-size: 18px;
-  margin-bottom: 10px;
+.TrainCard .bookButton {
+  background-color: #22cd22;
+  padding: 0.5rem 2rem;
 }
 
-.btnGroup {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+.TrainCard .bookButton:hover {
+  background-color: #11aa11;
 }
 
-.bookNowBtn {
-  background-color: darkviolet;
-  border-radius: 5px;
-  color: #fff;
+.TrainCard .btn1 {
   display: inline-block;
-  font-size: 18px;
-  padding: 10px 40px;
-  text-align: center;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-
-.bookNowBtn:hover {
-  background-color: rgb(96, 1, 137);
-  cursor: pointer;
-}
-
-.viewDetailsBtn {
-  background-color: darkviolet;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  color: white;
-  display: inline-block;
-  font-size: 18px;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-  margin-left: 10px;
-}
-
-.viewDetailsBtn:hover {
-  background-color: rgb(96, 1, 137);
-  cursor: pointer;
-}
-
-.cardInfo {
-  margin-bottom: 10px;
+  padding: 0.5rem 2rem;
 }
 
 .cardButtons {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  margin-bottom: 20px;
+  justify-content: space-between;
 }
 
-.btn {
-  background-color: #c1c1c1;
-  color: black;
-  border: none;
-  border-radius: 2px;
-  font-size: 16px;
-  padding: 10px 20px;
-  margin-right: 20px;
-
-  text-align: left;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-  flex-basis: calc(25% - 200px);
+.train .trainTime {
+  margin-left: 800px;
 }
 
-.btn p {
-  font-size: 14px;
-}
-.btn:hover {
-  background-color: #a1a1a1;
-  cursor: pointer;
-}
-
-.logo a {
-  font-size: 24px;
-  color: #fff;
-  text-decoration: none;
-}
-
-.nav-items form {
-  display: flex;
-  align-items: center;
-}
-
-.TrainSearch label {
+.TrainCard label {
   font-size: 18px;
   margin-right: 10px;
 }
@@ -167,9 +103,9 @@
   margin: 20px 0;
 }
 
-.TrainSearch input[type='text'],
-.TrainSearch input[type='date'],
-.TrainSearch input[type='time'] {
+.TrainCard input[type='text'],
+.TrainCard input[type='date'],
+.TrainCard input[type='time'] {
   padding: 10px;
   margin-right: 10px;
   border: none;
@@ -178,14 +114,18 @@
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
 }
 
-.TrainSearch input[type='text']:focus,
-.TrainSearch input[type='date']:focus,
-.TrainSearch input[type='time']:focus {
+.buttonGroup {
+  margin-top: 1.5rem;
+}
+
+.TrainCard input[type='text']:focus,
+.TrainCard input[type='date']:focus,
+.TrainCard input[type='time']:focus {
   outline: none;
   box-shadow: 0 2px 5px rgba(81, 203, 238, 0.5);
 }
 
-.TrainSearch button[type='submit'] {
+.TrainCard button[type='submit'] {
   padding: 15px;
 
   background-color: darkviolet;
@@ -197,19 +137,48 @@
   transition: background-color 0.3s ease-in-out;
 }
 
-.TrainSearch button[type='submit']:hover {
+.TrainCard button[type='submit']:hover {
   background-color: rgb(96, 1, 137);
 }
 
 @media screen and (max-width: 480px) {
-  .search-container {
+  .searchContainer {
     flex-direction: column;
     align-items: stretch;
   }
 
-  .TrainSearch input[type='text'],
-  .TrainSearch input[type='date'],
-  .TrainSearch input[type='time'] {
+  .TrainCard input[type='text'],
+  .TrainCard input[type='date'],
+  .TrainCard input[type='time'] {
     margin: 10px 0;
+  }
+}
+
+@media (max-width: 800px) {
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbarItem {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+
+  .navbarValue {
+    margin: 0;
+  }
+
+  .cardButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .countGroup {
+    flex-direction: column;
+    gap: 0.25rem;
   }
 }

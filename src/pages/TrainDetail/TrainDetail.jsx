@@ -33,34 +33,62 @@ function TrainDetail() {
   if (!trainDetail) return <Error />;
 
   return (
-    <div className={styles.TrainDetail}>
+    <main className={styles.TrainDetail}>
       <div className={styles.container}>
-        <div className={styles.title}>Routes</div>
-        <div className={styles.tableContainer}>
-          <table className={styles.styledTable}>
-            <thead>
-              <tr>
-                <th>Station</th>
-                <th>Arrival Date</th>
-                <th>Arrival Time</th>
-                <th>Departure Date</th>
-                <th>Departure Time</th>
-                <th>Halt Time</th>
-              </tr>
-            </thead>
-            <tbody>
-              {trainDetail?.stations?.map((station, index) => (
-                <tr key={index}>
-                  <td>{station.name}</td>
-                  <td>{station.arrivalDate}</td>
-                  <td>{station.arrivalTime}</td>
-                  <td>{station.departureDate}</td>
-                  <td>{station.departureTime}</td>
-                  <td>{station.haltTime}</td>
+        <div className={styles.subContainer}>
+          <div className={styles.firstContainer}>
+            <div className={styles.containerItem}>
+              <span className={styles.containerLabel}>Train Name:</span>
+              <span className={styles.containerValue}>{trainDetail.name}</span>
+            </div>
+            <div className={styles.containerItem}>
+              <span className={styles.containerLabel}>From:</span>
+              <span className={styles.containerValue}>
+                {trainDetail.source}
+              </span>
+            </div>
+            <div className={styles.containerItem}>
+              <span className={styles.containerLabel}>To:</span>
+              <span className={styles.containerValue}>
+                {trainDetail.destination}
+              </span>
+            </div>
+            <div className={styles.containerItem}>
+              <span className={styles.containerLabel}>Date:</span>
+              <span className={styles.containerValue}>
+                {trainDetail.sourceDepartureDate}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div className={styles.subContainer}>
+          <div className={styles.tableContainer}>
+            <table className={styles.styledTable}>
+              <thead>
+                <tr>
+                  <th>Station</th>
+                  <th>Arrival Date</th>
+                  <th>Arrival Time</th>
+                  <th>Departure Date</th>
+                  <th>Departure Time</th>
+                  <th>Halt Time</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {trainDetail?.stations?.map((station, index) => (
+                  <tr key={index}>
+                    <td>{station.name}</td>
+                    <td>{station.arrivalDate}</td>
+                    <td>{station.arrivalTime}</td>
+                    <td>{station.departureDate}</td>
+                    <td>{station.departureTime}</td>
+                    <td>{station.haltTime}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
 
         {canBookTicket(
@@ -69,20 +97,20 @@ function TrainDetail() {
         ) ? (
           <Link
             to={`/train/reservation/${trainDetail._id}`}
-            className={styles.bookNowBtn}
+            className={`default-button ${styles.bookButton}`}
           >
             Book Now
           </Link>
         ) : (
           <button
             onClick={() => toast.error('Can only book 3 Hour prior')}
-            className={styles.bookNowBtn}
+            className={`default-button ${styles.bookButton}`}
           >
             Book Now
           </button>
         )}
       </div>
-    </div>
+    </main>
   );
 }
 

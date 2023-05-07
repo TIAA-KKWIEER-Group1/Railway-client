@@ -52,7 +52,7 @@ function Banner() {
   return (
     <section className={styles.banner}>
       <div className={styles.trainSearchFormContainer}>
-        <h2>Railway Reservation</h2>
+        <h2 className="title">Railway Reservation</h2>
         <div className={styles.trainSearchForm}>
           <div className={styles.inputContainer}>
             <label>Date</label>

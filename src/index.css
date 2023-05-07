@@ -171,10 +171,10 @@ code {
 /* custom button */
 .default-button {
   text-decoration: none;
-  padding: 1rem 2rem;
+  padding: 0.2rem 1rem;
   background-color: rgb(var(--accent-color));
   border-radius: 6px;
-  font-size: 1.25rem;
+  font-size: 1rem;
   box-shadow: 0 2px 8px 0 rgb(117 76 255 / 25%);
 
   color: #fff;

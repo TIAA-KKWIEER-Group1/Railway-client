@@ -152,7 +152,7 @@
 }
 
 .TrainSearch label {
-  font-size: 18px;
+  font-size: 1rem;
   margin-right: 10px;
 }
 
@@ -165,6 +165,25 @@
   justify-content: center;
   align-items: center;
   margin: 20px 0;
+  padding-inline: 1rem;
+  gap: 1rem;
+}
+
+.TrainSearch option {
+  color: #333;
+}
+
+.TrainSearch :where(input, select, option) {
+  cursor: pointer;
+  width: 100%;
+  position: relative;
+  outline: none;
+  font-size: 1rem;
+  color: #707070;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  border-radius: 6px;
+  padding: 0.25rem 1rem;
 }
 
 .TrainSearch input[type='text'],
@@ -175,7 +194,8 @@
   border: none;
   border-radius: 3px;
   font-size: 16px;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+  border: 1px solid #ddd;
+  border-radius: 6px;
 }
 
 .TrainSearch input[type='text']:focus,
@@ -201,6 +221,10 @@
   background-color: rgb(96, 1, 137);
 }
 
+.noTrainFound {
+  text-align: center;
+}
+
 @media screen and (max-width: 480px) {
   .search-container {
     flex-direction: column;
@@ -211,5 +235,17 @@
   .TrainSearch input[type='date'],
   .TrainSearch input[type='time'] {
     margin: 10px 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .searchContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .inputContainer {
+    width: 100%;
   }
 }

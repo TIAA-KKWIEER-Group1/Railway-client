@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useRef, useState } from 'react';
+import { toast } from 'react-hot-toast';
 import { BiCloudUpload } from 'react-icons/bi';
 import styles from './Admin.module.css';
 
@@ -26,9 +27,13 @@ function Admin() {
     axios
       .post(url, formData)
       .then(() => {
+        toast.success('Data Uploaded Successfully');
+        setFile(null);
         setIsLoading(false);
       })
       .catch((error) => {
+        toast.error('Error Occurred during Data Upload');
+
         console.log(error);
         setIsLoading(false);
       });

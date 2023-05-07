@@ -22,7 +22,7 @@ function AdminLogin() {
     },
     onSuccess: () => {
       queryClient.refetchQueries(['user-status']);
-      navigate('/');
+      navigate('/admin');
     },
   });
 
