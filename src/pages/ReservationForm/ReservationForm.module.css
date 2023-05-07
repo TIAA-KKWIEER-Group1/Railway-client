@@ -87,8 +87,7 @@ select {
   border-bottom-width: 2px;
   transition: all 0.3 ease;
 }
-.userdetails .inputBox input:focus,
-.userdetails .inputBox input:valid {
+.userdetails .inputBox input:focus {
   border-color: rgb(var(--accent-color));
 }
 
