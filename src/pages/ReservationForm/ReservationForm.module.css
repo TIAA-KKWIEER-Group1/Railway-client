@@ -10,6 +10,38 @@
   margin-inline: auto;
 }
 
+.container .addBtn {
+  background-color: #22cd22;
+  color: white;
+  font-weight: 500;
+}
+
+.container .addBtn:hover,
+.container .addBtn:focus {
+  background-color: #18a718;
+}
+
+.container .deleteBtn {
+  background-color: red;
+  color: white;
+  font-weight: 500;
+}
+
+.container .deleteBtn:hover,
+.container .deleteBtn:focus {
+  background-color: rgb(196, 10, 10);
+}
+
+.actionButtons {
+  display: flex;
+  gap: 1rem;
+}
+
+.header {
+  text-align: center;
+  margin-block: 1rem;
+}
+
 .container .title {
   font-size: 25px;
   font-weight: 500;

@@ -36,7 +36,9 @@ function Footer() {
           <div>
             <i className="fa fa-map-marker"></i>
             <p>
-              <span>KK wagh </span> Collage of engineering, Nashik
+              <span>
+                K. K. Wagh Institute of Engineering Education & Research
+              </span>
             </p>
           </div>
 

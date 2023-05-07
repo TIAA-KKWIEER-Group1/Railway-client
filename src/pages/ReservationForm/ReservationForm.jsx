@@ -96,14 +96,12 @@ function ReservationForm() {
 
       <div className={styles.container}>
         <div className={styles.title}>Reservation Form</div>
-        <center>
-          <span className={styles.details}>{trainDetail.name}</span>(
-          <span className={styles.details}>{trainDetail.trainNo}</span>)
-        </center>
-
-        <div>
-          <p>From: {trainDetail.source}</p>
-          <p>To: {trainDetail.destination}</p>
+        <div className={styles.header}>
+          <span className={styles.details}>{trainDetail.name} </span>(
+          <span className={styles.details}>{trainDetail.no}</span>)
+          <p>
+            {trainDetail.source} to {trainDetail.destination}
+          </p>
         </div>
 
         <div className={styles.passengerForm}>
@@ -207,16 +205,21 @@ function ReservationForm() {
                 </div>
               </div>
             ))}
-            <button
-              className={styles.passengerForm}
-              type="button"
-              onClick={addDetail}
-            >
-              ADD
-            </button>
-            <button className={styles.btn} onClick={deleteDetail}>
-              Delete
-            </button>
+            <div className={styles.actionButtons}>
+              <button
+                className={`default-button ${styles.addBtn}`}
+                type="button"
+                onClick={addDetail}
+              >
+                ADD
+              </button>
+              <button
+                className={`default-button ${styles.deleteBtn}`}
+                onClick={deleteDetail}
+              >
+                Delete
+              </button>
+            </div>
 
             <div className={styles.button}>
               <input type="submit" value="Book" onClick={handleReservation} />
