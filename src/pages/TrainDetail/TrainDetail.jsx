@@ -81,9 +81,19 @@ function TrainDetail() {
                     <td>{station.name}</td>
                     <td>{station.arrivalDate}</td>
                     <td>{station.arrivalTime}</td>
-                    <td>{station.departureDate}</td>
-                    <td>{station.departureTime}</td>
-                    <td>{station.haltTime}</td>
+
+                    <td>
+                      {station.departureDate != '0'
+                        ? station.departureDate
+                        : '-'}
+                    </td>
+
+                    <td>
+                      {station.departureTime != '0'
+                        ? station.departureTime
+                        : '-'}
+                    </td>
+                    <td>{station.haltTime != '0' ? station.haltTime : null}</td>
                   </tr>
                 ))}
               </tbody>
