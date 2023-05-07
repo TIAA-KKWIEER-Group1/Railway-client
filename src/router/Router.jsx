@@ -51,7 +51,10 @@ function Router() {
       {/* User Pages */}
       <Route path="/trains" element={<TrainSearch />} />
       <Route path="/trains/:id" element={<TrainDetail />} />
-      <Route path="/train/reservation/:id" element={<ReservationForm />} />
+
+      {user.isLoggedIn ? (
+        <Route path="/train/reservation/:id" element={<ReservationForm />} />
+      ) : null}
 
       {/* Not Found */}
       <Route path="*" element={<NotFound />} />

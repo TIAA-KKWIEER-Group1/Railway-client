@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
+import { useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { getTrainDetail } from '../../services/train.services';
 import canBookTicket from '../../utils/canBookTicket';
@@ -9,6 +10,7 @@ import styles from './TrainDetail.module.css';
 
 function TrainDetail() {
   const params = useParams();
+  const user = useSelector((state) => state.user);
 
   // Get train details when state is loaded
   const [trainDetail, setTrainDetail] = useState(null);
@@ -104,7 +106,7 @@ function TrainDetail() {
         {canBookTicket(
           trainDetail.sourceArrivalDate,
           trainDetail.sourceArrivalTime,
-        ) ? (
+        ) && user.isLoggedIn ? (
           <Link
             to={`/train/reservation/${trainDetail._id}`}
             className={`default-button ${styles.bookButton}`}
@@ -113,7 +115,13 @@ function TrainDetail() {
           </Link>
         ) : (
           <button
-            onClick={() => toast.error('Can only book 3 Hour prior')}
+            onClick={() => {
+              if (!user.isLoggedIn) {
+                toast.error('Please Login to Book Ticket ');
+              } else {
+                toast.error('Can only book 3 Hour prior');
+              }
+            }}
             className={`default-button ${styles.bookButton}`}
           >
             Book Now

@@ -1,10 +1,13 @@
 /* eslint-disable react/prop-types */
 import { toast } from 'react-hot-toast';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import canBookTicket from '../../utils/canBookTicket';
 import styles from './TrainCard.module.css';
 
 function TrainCard({ train }) {
+  const user = useSelector((state) => state.user);
+
   return (
     <div className={styles.TrainCard}>
       <div className={styles.container}>
@@ -57,7 +60,7 @@ function TrainCard({ train }) {
                 {canBookTicket(
                   train.sourceArrivalDate,
                   train.sourceArrivalTime,
-                ) ? (
+                ) && user.isLoggedIn ? (
                   <Link
                     to={`/train/reservation/${train._id}`}
                     className={`default-button ${styles.bookButton}`}
@@ -66,7 +69,13 @@ function TrainCard({ train }) {
                   </Link>
                 ) : (
                   <button
-                    onClick={() => toast.error('Can only book 3 Hour prior')}
+                    onClick={() => {
+                      if (!user.isLoggedIn) {
+                        toast.error('Please Login to Book Ticket ');
+                      } else {
+                        toast.error('Can only book 3 Hour prior');
+                      }
+                    }}
                     className={`default-button ${styles.bookButton}`}
                   >
                     Book Now
