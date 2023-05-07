@@ -30,7 +30,7 @@ function UserLogin() {
       // toast.error(error.response.data.message);
     },
     onSuccess: () => {
-      toast.success('Success');
+      toast.success('Login Successful');
       queryClient.refetchQueries(['user-status']);
       navigate('/');
     },

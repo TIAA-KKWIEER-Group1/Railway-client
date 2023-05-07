@@ -72,8 +72,8 @@ function ReservationForm() {
         passengerDetails: passengers,
       };
 
-      const responseData = await makeTrainReservation(data);
-      toast.success(responseData?.message || 'Reservation Successful');
+      await makeTrainReservation(data);
+      toast.success('Reservation Successful');
     } catch (error) {
       if (error?.response?.data?.message) {
         toast.error(error?.response?.data?.message);
