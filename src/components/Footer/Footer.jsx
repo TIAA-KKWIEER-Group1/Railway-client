@@ -1,3 +1,9 @@
+import {
+  FaFacebookSquare,
+  FaInstagram,
+  FaLinkedinIn,
+  FaTwitterSquare,
+} from 'react-icons/fa';
 import styles from './Footer.module.css';
 
 function Footer() {
@@ -55,12 +61,28 @@ function Footer() {
             schedules and inventory via Excel. Simplifying train travel.
           </p>
 
-          <div className={styles.footerIcons}>
-            <a href="#">{/* <FontAwesomeIcon icon={faFacebook} /> */}</a>
-            <a href="#">{/* <FontAwesomeIcon icon={faTwitter} /> */}</a>
-            <a href="#">{/* <FontAwesomeIcon icon={faLinkedin} /> */}</a>
-            <a href="#">{/* <FontAwesomeIcon icon={faInstagram} /> */}</a>
-          </div>
+          <ul className={styles.links}>
+            <li>
+              <a href="#" className="social-link">
+                <FaFacebookSquare size={28} color="#4267B2" />
+              </a>
+            </li>
+            <li>
+              <a href="#" className="social-link">
+                <FaTwitterSquare size={28} color="#1DA1F2" />
+              </a>
+            </li>
+            <li>
+              <a href="#" className="social-link">
+                <FaInstagram size={28} color="#E1306C" />
+              </a>
+            </li>
+            <li>
+              <a href="#" className="social-link">
+                <FaLinkedinIn size={28} color="#1DA1F2" />
+              </a>
+            </li>
+          </ul>
         </div>
       </footer>
     </section>

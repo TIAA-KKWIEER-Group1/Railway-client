@@ -168,6 +168,22 @@
   margin-bottom: 5px;
 }
 
+.links {
+  padding-inline: 0;
+  margin-top: 0.5rem;
+
+  display: flex;
+  gap: 0.5rem;
+}
+
+.links a {
+  text-decoration: none;
+}
+
+.link li {
+  list-style: none;
+}
+
 /* If you don't want the footer to be responsive, remove these media queries */
 
 @media (max-width: 932px) {

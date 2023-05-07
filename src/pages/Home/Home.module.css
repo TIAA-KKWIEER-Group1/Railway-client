@@ -1,75 +1,19 @@
-/* Information container */
-.allInformation {
-  scroll-margin-top: 3rem;
-  padding-block: 4rem;
-  padding-inline: 3rem;
-
-  background-color: rgb(var(--bg-light));
-}
-
-.allInformation h2 {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-  text-align: center;
-}
-
-.allInformation h2 > span {
-  display: block;
-}
-
-.information {
-  padding: 1rem;
-  margin-bottom: 2rem;
-
-  text-align: center;
-  box-shadow: var(--box-shadow);
-  background-color: rgb(var(--bg-white));
-  border-radius: 5px;
-}
-
-.information > img {
-  max-width: 4rem;
-  min-width: 4rem;
-  margin-bottom: 1rem;
-}
-
-@media (min-width: 720px) {
-  .allInformation {
-    padding-top: 4rem;
-    padding-bottom: 6rem;
-  }
-
-  .allInformation h2 {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .informationContainer {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-  }
-
-  .information {
-    margin-bottom: 0;
-  }
-}
-
 /* faq and news section */
 .faqAndNews {
   display: grid;
   justify-content: center;
   grid-template-columns: 50% 30%;
   gap: 5rem;
-  padding: 3rem;
+  padding: 6rem 2rem;
 
   align-items: start;
 
-  background-color: rgb(0, 0, 0, 0.4);
+  background-color: rgb(248, 249, 254);
 }
 
 .slide {
   padding: 1rem 2rem;
+  text-align: center;
 }
 
 .faq h3 {
@@ -81,13 +25,26 @@
 .news {
   background-color: white;
   box-shadow: var(--box-shadow);
-  padding: 1rem 2rem;
+  padding: 1rem 1.5rem;
 
   border-radius: 5px;
   height: 100%;
 }
 
-@media (max-width: 720px) {
+.news a {
+  color: rgb(var(--txt-dark));
+  text-decoration: none;
+}
+
+.news a:hover {
+  text-decoration: underline;
+}
+
+.news h2 {
+  padding-bottom: 0.8rem;
+}
+
+@media (max-width: 900px) {
   .faqAndNews {
     grid-template-columns: 100%;
   }
