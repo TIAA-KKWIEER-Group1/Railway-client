@@ -41,12 +41,14 @@ function TrainCard({ train }) {
           <div className={styles.buttonGroup}>
             <p>Available Seat Count</p>
             <div className={styles.countGroup}>
-              <button className={styles.btn}>AC: {train.noOfACCoach}</button>
               <button className={styles.btn}>
-                Sleeper: {train.noOfSleeperCoach}{' '}
+                AC: {train.availableACCoach}
               </button>
               <button className={styles.btn}>
-                General: {train.noOfGeneralCoach}
+                Sleeper: {train.availableSleeperCoach}
+              </button>
+              <button className={styles.btn}>
+                General: {train.availableGeneralCoach}
               </button>
             </div>
 
