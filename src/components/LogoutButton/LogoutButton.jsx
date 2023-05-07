@@ -13,8 +13,12 @@ function LogoutButton({ className, children }) {
 
   const { mutate, isLoading } = useMutation({
     mutationFn: () => logoutUser(),
-    onError: () => {
-      toast.error('Internal Server Error');
+    onError: (error) => {
+      if (error?.response?.data?.message) {
+        toast.error(error?.response?.data?.message);
+      } else {
+        toast.error('Something went wrong');
+      }
     },
     onSuccess: () => {
       queryClient.refetchQueries(['user-status']);

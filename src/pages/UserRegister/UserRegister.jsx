@@ -16,7 +16,11 @@ function UserRegister() {
   const { mutate, isLoading } = useMutation({
     mutationFn: (user) => registerUser(user, otp),
     onError: (error) => {
-      toast.error(error.response.data.message);
+      if (error?.response?.data?.message) {
+        toast.error(error?.response?.data?.message);
+      } else {
+        toast.error('Something went wrong');
+      }
     },
     onSuccess: () => {
       toast.success('User Registered Successfully');

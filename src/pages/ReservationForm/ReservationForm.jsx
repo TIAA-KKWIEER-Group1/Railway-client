@@ -22,7 +22,11 @@ function ReservationForm() {
         setTrainDetail(data);
       } catch (error) {
         console.log(error);
-        toast.error('Error Booking train');
+        if (error?.response?.data?.message) {
+          toast.error(error?.response?.data?.message);
+        } else {
+          toast.error('Error Booking train');
+        }
       }
       setIsLoading(false);
     };
@@ -71,7 +75,11 @@ function ReservationForm() {
       const responseData = await makeTrainReservation(data);
       toast.success(responseData?.message || 'Reservation Successful');
     } catch (error) {
-      toast.error('Something went wrong');
+      if (error?.response?.data?.message) {
+        toast.error(error?.response?.data?.message);
+      } else {
+        toast.error('Something went wrong');
+      }
     }
   };
 

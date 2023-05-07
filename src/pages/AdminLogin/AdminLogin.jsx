@@ -18,7 +18,11 @@ function AdminLogin() {
   const { mutate, isLoading } = useMutation({
     mutationFn: (user) => loginAdmin(user.username, user.password),
     onError: (error) => {
-      toast.error(error.response.data.message);
+      if (error?.response?.data?.message) {
+        toast.error(error?.response?.data?.message);
+      } else {
+        toast.error('Something went Wrong');
+      }
     },
     onSuccess: () => {
       queryClient.refetchQueries(['user-status']);

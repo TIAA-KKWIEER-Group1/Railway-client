@@ -23,7 +23,12 @@ function TrainDetail() {
         setTrainDetail(data);
       } catch (error) {
         console.log(error);
-        toast.error('Error Loading Train Detail');
+
+        if (error?.response?.data?.message) {
+          toast.error(error?.response?.data?.message);
+        } else {
+          toast.error('Error Loading Train Detail');
+        }
       }
       setIsLoading(false);
     };

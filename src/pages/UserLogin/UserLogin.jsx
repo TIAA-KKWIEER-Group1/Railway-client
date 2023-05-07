@@ -21,8 +21,12 @@ function UserLogin() {
 
   const { mutate, isLoading } = useMutation({
     mutationFn: (user) => loginUser(user.mobile, user.password),
-    onError: () => {
-      toast.error('Error');
+    onError: (error) => {
+      if (error?.response?.data?.message) {
+        toast.error(error?.response?.data?.message);
+      } else {
+        toast.error('Something went wrong');
+      }
       // toast.error(error.response.data.message);
     },
     onSuccess: () => {
