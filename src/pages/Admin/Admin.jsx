@@ -25,7 +25,7 @@ function Admin() {
     const url = import.meta.env.VITE_REACT_APP_BASE_API_URL + '/admin/csvData';
 
     axios
-      .post(url, formData)
+      .post(url, formData, { withCredentials: true })
       .then(() => {
         toast.success('Data Uploaded Successfully');
         setFile(null);
