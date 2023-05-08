@@ -31,6 +31,9 @@ function TrainCard({ train }) {
         </div>
         <div className={styles.trainDetails}>
           <p className={`${styles.train} ${styles.trainTime}`}>
+            PRN: {train._id}
+          </p>
+          <p className={`${styles.train} ${styles.trainTime}`}>
             Date: {train.sourceDepartureDate}
           </p>
 
