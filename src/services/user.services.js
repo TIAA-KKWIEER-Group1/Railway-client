@@ -44,4 +44,18 @@ const logoutUser = () => {
   return axios.post(url, {}, { withCredentials: true });
 };
 
-export { getUserStatus, loginUser, registerUser, getRegisterOTP, logoutUser };
+const getUserProfile = () => {
+  const url = BASE_API_URL + '/user/profile';
+  return axios
+    .get(url, { withCredentials: true })
+    .then((response) => response.data.data);
+};
+
+export {
+  getUserStatus,
+  loginUser,
+  registerUser,
+  getRegisterOTP,
+  logoutUser,
+  getUserProfile,
+};

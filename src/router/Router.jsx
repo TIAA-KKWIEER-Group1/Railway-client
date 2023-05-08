@@ -8,6 +8,7 @@ import Error from '../pages/Error/Error';
 import Home from '../pages/Home/Home';
 import Loading from '../pages/Loading/Loading';
 import NotFound from '../pages/NotFound/NotFound';
+import Profile from '../pages/Profile/Profile';
 import ReservationForm from '../pages/ReservationForm/ReservationForm';
 import TrainDetail from '../pages/TrainDetail/TrainDetail';
 import TrainSearch from '../pages/TrainSearch/TrainSearch';
@@ -54,6 +55,10 @@ function Router() {
 
       {user.isLoggedIn ? (
         <Route path="/train/reservation/:id" element={<ReservationForm />} />
+      ) : null}
+
+      {user.isLoggedIn && !user.isAdmin ? (
+        <Route path="/user/profile" element={<Profile />} />
       ) : null}
 
       {/* Not Found */}

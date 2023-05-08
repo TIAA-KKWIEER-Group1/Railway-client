@@ -57,6 +57,13 @@ function Navbar() {
             <li className={styles.navItem}>
               <Link to="/">Home</Link>
             </li>
+
+            {user?.isLoggedIn && !user?.isAdmin ? (
+              <li className={styles.navItem}>
+                <Link to="/user/profile">Profile</Link>
+              </li>
+            ) : null}
+
             {user?.isLoggedIn ? (
               <LogoutButton className="default-button default-outline-button">
                 Logout
