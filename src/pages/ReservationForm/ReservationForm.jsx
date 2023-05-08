@@ -18,6 +18,8 @@ function ReservationForm() {
   const [trainDetail, setTrainDetail] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
+  const [reservationData, setReservationData] = useState(null);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -75,7 +77,8 @@ function ReservationForm() {
         passengerDetails: passengers,
       };
 
-      await makeTrainReservation(data);
+      const responseData = await makeTrainReservation(data);
+      setReservationData(responseData);
 
       toast.success('Reservation Successful');
       setShowModal(true);
@@ -92,7 +95,9 @@ function ReservationForm() {
 
   return (
     <>
-      {showModal ? <ReservationSuccessModal /> : null}
+      {showModal ? (
+        <ReservationSuccessModal reservationData={reservationData} />
+      ) : null}
 
       <div className={styles.container}>
         <div className={styles.title}>Reservation Form</div>

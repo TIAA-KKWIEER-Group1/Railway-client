@@ -24,7 +24,7 @@
 
 .container {
   position: relative;
-  max-width: 450px;
+  max-width: 500px;
   width: 100%;
   background: #fff;
   border-radius: 10px;
@@ -53,4 +53,55 @@
   width: 30px;
   background-color: rgb(var(--accent-color));
   border-radius: 25px;
+}
+
+.styledTable {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  background-color: #fff;
+  box-shadow: var(--box-shadow);
+  border-radius: 5px;
+
+  position: relative;
+}
+
+.styledTable thead tr {
+  background-color: rgb(var(--accent-color));
+  color: #ffffff;
+  text-align: center;
+}
+
+.styledTable thead tr th {
+  padding: 12px 15px;
+}
+
+.ReservationSuccessModal th,
+.ReservationSuccessModal td {
+  width: 20%;
+  margin-left: 3rem;
+  padding: 12px 15px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  border-color: #ddd;
+}
+
+.ReservationSuccessModal tr:nth-child(even) {
+  background-color: rgb(var(--bg-light));
+}
+
+.ReservationSuccessModal tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+.ReservationSuccessModal .bookButton {
+  margin-block: 1.5rem;
+  padding: 0.5rem 2rem;
+  font-size: 1.25rem;
+}
+
+.ReservationSuccessModal thead {
+  position: sticky;
+  top: 0;
 }
