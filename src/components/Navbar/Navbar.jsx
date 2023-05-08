@@ -57,6 +57,9 @@ function Navbar() {
             <li className={styles.navItem}>
               <Link to="/">Home</Link>
             </li>
+            <li className={styles.navItem}>
+              <Link to="/train/status">Train Status</Link>
+            </li>
 
             {user?.isLoggedIn && !user?.isAdmin ? (
               <li className={styles.navItem}>

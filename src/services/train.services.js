@@ -32,9 +32,15 @@ const makeTrainReservation = (data) => {
     .then((response) => response.data);
 };
 
+const getTrainStatus = (id) => {
+  const url = BASE_API_URL + `/train/train-status/${id}`;
+  return axios.get(url).then((response) => response.data);
+};
+
 export {
   getTrainSearchData,
   getAllStations,
   getTrainDetail,
   makeTrainReservation,
+  getTrainStatus,
 };

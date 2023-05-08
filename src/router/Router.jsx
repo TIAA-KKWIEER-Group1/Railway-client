@@ -12,6 +12,7 @@ import Profile from '../pages/Profile/Profile';
 import ReservationForm from '../pages/ReservationForm/ReservationForm';
 import TrainDetail from '../pages/TrainDetail/TrainDetail';
 import TrainSearch from '../pages/TrainSearch/TrainSearch';
+import TrainStatus from '../pages/TrainStatus/TrainStatus';
 import UserLogin from '../pages/UserLogin/UserLogin';
 import UserRegister from '../pages/UserRegister/UserRegister';
 
@@ -60,6 +61,9 @@ function Router() {
       {user.isLoggedIn && !user.isAdmin ? (
         <Route path="/user/profile" element={<Profile />} />
       ) : null}
+
+      {/* Train status */}
+      <Route path="/train/status" element={<TrainStatus />} />
 
       {/* Not Found */}
       <Route path="*" element={<NotFound />} />
