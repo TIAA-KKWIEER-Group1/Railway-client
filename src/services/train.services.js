@@ -37,10 +37,18 @@ const getTrainStatus = (id) => {
   return axios.get(url).then((response) => response.data);
 };
 
+const updateTrainData = (data) => {
+  const url = BASE_API_URL + `/admin/update-train`;
+  return axios
+    .put(url, data, { withCredentials: true })
+    .then((response) => response.data);
+};
+
 export {
   getTrainSearchData,
   getAllStations,
   getTrainDetail,
   makeTrainReservation,
   getTrainStatus,
+  updateTrainData,
 };

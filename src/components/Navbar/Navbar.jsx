@@ -67,6 +67,12 @@ function Navbar() {
               </li>
             ) : null}
 
+            {user?.isLoggedIn && user?.isAdmin ? (
+              <li className={styles.navItem}>
+                <Link to="/admin/update-train">Update Train</Link>
+              </li>
+            ) : null}
+
             {user?.isLoggedIn ? (
               <LogoutButton className="default-button default-outline-button">
                 Logout

@@ -13,6 +13,7 @@ import ReservationForm from '../pages/ReservationForm/ReservationForm';
 import TrainDetail from '../pages/TrainDetail/TrainDetail';
 import TrainSearch from '../pages/TrainSearch/TrainSearch';
 import TrainStatus from '../pages/TrainStatus/TrainStatus';
+import UpdateTrainPage from '../pages/UpdateTrainPage/UpdateTrainPage';
 import UserLogin from '../pages/UserLogin/UserLogin';
 import UserRegister from '../pages/UserRegister/UserRegister';
 
@@ -47,7 +48,11 @@ function Router() {
 
       {/* Admin Page */}
       {user.isLoggedIn && user.isAdmin ? (
-        <Route path="/admin" element={<Admin />} />
+        <>
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/admin/status" element={<TrainStatus />} />
+          <Route path="/admin/update-train" element={<UpdateTrainPage />} />
+        </>
       ) : null}
 
       {/* User Pages */}
@@ -63,7 +68,6 @@ function Router() {
       ) : null}
 
       {/* Train status */}
-      <Route path="/train/status" element={<TrainStatus />} />
 
       {/* Not Found */}
       <Route path="*" element={<NotFound />} />
